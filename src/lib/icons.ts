@@ -1,7 +1,5 @@
 import {
   FaJava,
-  FaHtml5,
-  FaCss3,
   FaReact,
   FaNodeJs,
   FaDocker,
@@ -13,23 +11,21 @@ import {
   SiPython,
   SiJavascript,
   SiTypescript,
-  SiVite,
-  SiReactrouter,
   SiTailwindcss,
-  SiAxios,
   SiRedux,
+  SiZod,
   SiReactquery,
   SiExpress,
   SiJsonwebtokens,
   SiMongodb,
-  SiPostgresql,
+  SiRedis,
   SiPrisma,
   SiMongoose,
   SiPostman,
   SiVercel,
 } from "react-icons/si";
-import { RiNextjsFill, RiNextjsLine } from "react-icons/ri";
-import { VscVscode } from "react-icons/vsc";
+import { RiNextjsFill } from "react-icons/ri";
+import { BiLogoPostgresql } from "react-icons/bi";
 
 export const icons = {
   // languages
@@ -38,15 +34,12 @@ export const icons = {
   Javascript: SiJavascript,
   Typescript: SiTypescript,
   // dev
-  HTML: FaHtml5,
-  CSS: FaCss3,
   Tailwind: SiTailwindcss,
-  Axios: SiAxios,
   React: FaReact,
-  ReactRouter: SiReactrouter,
   Redux: SiRedux,
   ReactQuery: SiReactquery,
-  Nextjs: RiNextjsLine,
+  Zod: SiZod,
+  Nextjs: RiNextjsFill,
   Nodejs: FaNodeJs,
   Express: SiExpress,
   JWT: SiJsonwebtokens,
@@ -55,13 +48,12 @@ export const icons = {
   // db
   MongoDB: SiMongodb,
   Mongoose: SiMongoose,
-  PostgreSQL: SiPostgresql,
+  PostgreSQL: BiLogoPostgresql,
   Prisma: SiPrisma,
+  Redis: SiRedis,
   // tools
   Git: FaGitAlt,
   GitHub: FaGithub,
-  Vite: SiVite,
   Postman: SiPostman,
   Vercel: SiVercel,
-  VSCode: VscVscode,
 };
