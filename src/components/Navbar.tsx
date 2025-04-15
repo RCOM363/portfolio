@@ -12,7 +12,7 @@ function Navbar() {
         <span className="text-3xl font-extrabold">RCOM363</span>
       </div>
       <div className="flex items-center justify-end gap-2">
-        <div>
+        <div className="flex items-center gap-2">
           <Link href={"/"}>Home</Link>
           <Link href={"/about"}>About</Link>
           <Link href={"/projects"}>Projects</Link>
