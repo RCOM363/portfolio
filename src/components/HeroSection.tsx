@@ -8,12 +8,10 @@ import { FileTextIcon } from "./ui/file-text";
 import { GithubIcon } from "./ui/github";
 import { LinkedinIcon } from "./ui/linkedin";
 import { AtSignIcon } from "./ui/at-sign";
-import { MapPinIcon } from "./ui/map-pin";
-import { MapPin } from "lucide-react";
 
 function HeroSection() {
   return (
-    <div className="w-full flex flex-wrap items-center gap-4 my-15">
+    <div className="w-full flex flex-wrap items-center gap-4 mt-5 lg:mt-10">
       <Image
         src={avatarImage}
         alt="avatar-image"
