@@ -21,7 +21,7 @@ function ExperienceSection() {
                 title={e.title}
                 duration={e.duration}
               ></AccordionTrigger>
-              <AccordionContent className="text-sm px-2 pb-4 pt-1 leading-relaxed">
+              <AccordionContent className="text-sm px-2 leading-relaxed">
                 {e.description}
               </AccordionContent>
             </AccordionItem>
