@@ -13,7 +13,7 @@ function TechnologiesSection() {
             className="flex flex-col items-center justify-center p-3 border-1 rounded-lg hover:bg-accent"
           >
             <IconComponent
-              size={32}
+              size={25}
               className="hover:-translate-y-1 duration-300"
             />
             <span className="text-sm mt-1">{name}</span>
