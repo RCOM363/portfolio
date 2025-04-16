@@ -10,7 +10,7 @@ import { AtSignIcon } from "./ui/at-sign";
 
 function HeroSection() {
   return (
-    <div className="w-full flex flex-wrap items-center gap-4 mt-2 lg:mt-10">
+    <div className="w-full flex flex-wrap items-center gap-4 py-5 lg:py-4">
       <Image
         src={avatarImage}
         alt="avatar-image"
@@ -23,7 +23,7 @@ function HeroSection() {
             Fullstack
           </span>{" "}
           Developer from{" "}
-          <span className="px-2.5 bg-accent hover:bg-accent/80 transition-colors border-2 rounded-lg cursor-pointer">
+          <span className="whitespace-nowrap px-2.5 bg-accent hover:bg-accent/80 transition-colors border-2 rounded-lg cursor-pointer">
             📍Karnatak, India
           </span>{" "}
           with a focus on the{" "}

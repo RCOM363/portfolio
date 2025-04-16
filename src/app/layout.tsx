@@ -36,7 +36,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-2xl mx-auto font-sans">
             <Navbar />
             {children}
           </div>

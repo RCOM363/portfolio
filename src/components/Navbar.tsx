@@ -7,7 +7,7 @@ import ThemeToggle from "./ThemeToggle";
 
 function Navbar() {
   return (
-    <nav className="sticky top-0 flex items-center justify-between px-2 lg:px-0 pt-4 backdrop-blur-[4px]">
+    <nav className="sticky top-0 flex items-center justify-between px-4 py-3 lg:py-6 backdrop-blur-[4px]">
       <div>
         <span className="text-xl lg:text-3xl font-extrabold">RCOM363</span>
       </div>

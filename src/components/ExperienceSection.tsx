@@ -10,7 +10,7 @@ import exp from "../data/experience.json";
 
 function ExperienceSection() {
   return (
-    <div className="w-full flex flex-col mt-10">
+    <div className="w-full flex flex-col py-4 lg:py-4">
       <h3 className="text-xl font-bold">Work Experience</h3>
       <div>
         <Accordion type="single" collapsible>
