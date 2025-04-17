@@ -50,17 +50,17 @@ function AccordionTrigger({
         )}
         {...props}
       >
-        <div className="flex justify-between w-full items-center">
-          <div>
-            <div className="flex items-center gap-1">
-              <p className="font-semibold text-base">{title}</p>
-              <ChevronDownIcon className="icon text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200 " />
+        <div className="w-full">
+          <div className="flex justify-between w-full items-center gap-2">
+            <div className="flex items-center justify-start gap-1">
+              <p className="font-semibold text-sm">{title}</p>
+              <ChevronDownIcon className="icon text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200" />
             </div>
-            <p className="text-sm text-muted-foreground">{company}</p>
+            <span className="text-sm text-muted-foreground text-right">
+              {duration}
+            </span>
           </div>
-          <span className="text-sm text-muted-foreground whitespace-nowrap">
-            {duration}
-          </span>
+          <p className="text-sm text-muted-foreground">{company}</p>
         </div>
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
