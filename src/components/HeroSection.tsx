@@ -56,38 +56,34 @@ function HeroSection() {
         </BlurFade>
         {/* links */}
         <BlurFade delay={BLUR_FADE_DELAY * 5} className="w-full">
-          <div className="w-full lg:w-auto flex items-center justify-start gap-1 lg:gap-4">
+          <div className="w-full lg:w-auto flex items-center justify-start gap-4">
             <Link
               href={
                 "https://drive.google.com/file/d/1PiAQR8W2cWbbFOiTAR478JHsM1Q_4RhD/view?usp=sharing"
               }
               target="_blank"
-              className="w-[15%] lg:w-[5%]"
             >
-              <FileTextIcon className="w-full" />
+              <FileTextIcon size={25} />
             </Link>
             <Link
               href={"https://www.github.com/RCOM363"}
               target="_blank"
-              className="flex justify-start w-[15%] lg:w-[5%]"
             >
-              <GithubIcon className="w-full" />
+              <GithubIcon size={25} />
             </Link>
             <Link
               href={
                 "https://www.linkedin.com/in/rahul-lankeppanavar-bb3260264/"
               }
               target="_blank"
-              className="flex justify-start w-[15%] lg:w-[5%]"
             >
-              <LinkedinIcon className="w-full" />
+              <LinkedinIcon size={25} />
             </Link>
             <Link
               href={"mailto:rahullankeppanavar363@gmail.com"}
               target="_blank"
-              className="flex justify-start w-[15%] lg:w-[5%]"
             >
-              <AtSignIcon className="w-full" />
+              <AtSignIcon size={25} />
             </Link>
           </div>
         </BlurFade>
