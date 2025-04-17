@@ -2,25 +2,29 @@
 
 import React from "react";
 import Link from "next/link";
-
+import { BlurFade } from "./magicui/blur-fade";
 import ThemeToggle from "./ThemeToggle";
+
+const BLUR_FADE_DELAY = 0.04;
 
 function Navbar() {
   return (
-    <nav className="sticky top-0 flex items-center justify-between px-4 py-3 lg:py-6 backdrop-blur-[4px]">
-      <div>
-        <span className="text-xl lg:text-3xl font-extrabold">RCOM363</span>
-      </div>
-      <div className="flex items-center justify-end gap-2 font-semibold">
-        <div className="flex items-center gap-2">
-          <Link href={"/"}>Home</Link>
-          <Link href={"/about"}>About</Link>
-          <Link href={"/projects"}>Projects</Link>
-          <Link href={"/blogs"}>Blogs</Link>
+    <BlurFade delay={BLUR_FADE_DELAY}>
+      <nav className="sticky top-0 z-10 flex items-center justify-between px-4 py-3 lg:py-6 backdrop-blur-[4px]">
+        <div>
+          <span className="text-xl lg:text-3xl font-extrabold">RCOM363</span>
         </div>
-        <ThemeToggle />
-      </div>
-    </nav>
+        <div className="flex items-center justify-end gap-2 font-semibold">
+          <div className="flex items-center gap-2">
+            <Link href={"/"}>Home</Link>
+            <Link href={"/about"}>About</Link>
+            <Link href={"/projects"}>Projects</Link>
+            <Link href={"/blogs"}>Blogs</Link>
+          </div>
+          <ThemeToggle />
+        </div>
+      </nav>
+    </BlurFade>
   );
 }
 
