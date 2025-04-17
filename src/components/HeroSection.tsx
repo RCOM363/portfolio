@@ -14,10 +14,17 @@ const BLUR_FADE_DELAY = 0.04;
 function HeroSection() {
   return (
     <div className="w-full flex flex-wrap items-center gap-4 py-5 lg:py-4">
-      <BlurFade delay={BLUR_FADE_DELAY * 2} className="w-[60%] lg:w-[25%]" inView>
+      <BlurFade
+        delay={BLUR_FADE_DELAY * 2}
+        className="w-[60%] lg:w-[25%]"
+        inView
+      >
         <Image
           src={avatarImage}
           alt="avatar-image"
+          priority
+          quality={100}
+          placeholder="blur"
           className="w-full rounded-lg lg:rounded-full"
         />
       </BlurFade>
