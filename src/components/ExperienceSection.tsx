@@ -7,7 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import exp from "../data/experience.json";
+import { experiences } from "@/data/experiences";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -19,7 +19,7 @@ function ExperienceSection() {
       </BlurFade>
       <div>
         <Accordion type="single" collapsible>
-          {exp.map((e, index: number) => (
+          {experiences.map((e, index: number) => (
             <BlurFade
               delay={BLUR_FADE_DELAY * 3 + index * 0.05}
               key={e.company}
