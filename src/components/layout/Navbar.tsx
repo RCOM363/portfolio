@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { BlurFade } from "./magicui/blur-fade";
+import { BlurFade } from "../magicui/blur-fade";
 import { CgMenuRightAlt } from "react-icons/cg";
 import {
   Dialog,
@@ -14,7 +14,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from "../ThemeToggle";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -23,10 +23,7 @@ const routes = [
     name: "Home",
     path: "/",
   },
-  {
-    name: "About",
-    path: "/about",
-  },
+
   {
     name: "Projects",
     path: "/projects",
@@ -34,6 +31,10 @@ const routes = [
   {
     name: "Blogs",
     path: "/blogs",
+  },
+  {
+    name: "About",
+    path: "/about",
   },
 ];
 
@@ -71,16 +72,13 @@ function Navbar() {
               <DialogContent className="w-[95vw]">
                 <DialogTitle></DialogTitle>
                 <div className="flex flex-col items-start gap-4 text-2xl font-semibold divide-y">
-                  {routes.map((route,index:number) => (
+                  {routes.map((route, index: number) => (
                     <BlurFade
-                    key={route.name}
-                    delay={BLUR_FADE_DELAY * 2 + index * 0.05}
-                    className="w-full"
+                      key={route.name}
+                      delay={BLUR_FADE_DELAY * 2 + index * 0.05}
+                      className="w-full"
                     >
-                      <DialogClose
-                        className="w-full p-2"
-                        asChild
-                      >
+                      <DialogClose className="w-full p-2" asChild>
                         <Link
                           href={route.path}
                           className={`${
