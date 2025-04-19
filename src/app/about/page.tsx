@@ -18,7 +18,7 @@ const images = [img1, img2, img3, img4];
 
 function About() {
   return (
-    <div className="w-full px-4 pb-5">
+    <div className="w-full px-4 py-5 lg:py-4">
       <BlurFade delay={BLUR_FADE_DELAY * 2}>
         <h1 className="text-2xl font-semibold pb-2">Hello, World👋</h1>
       </BlurFade>

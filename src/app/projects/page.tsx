@@ -12,7 +12,7 @@ const BLUR_FADE_DELAY = 0.04;
 
 function Projects() {
   return (
-    <div className="w-full px-4 pb-5">
+    <div className="w-full px-4 py-5 lg:py-4">
       <BlurFade delay={BLUR_FADE_DELAY * 2}>
         <h1 className="text-lg font-bold">Stuff that I&apos;ve worked on</h1>
       </BlurFade>
