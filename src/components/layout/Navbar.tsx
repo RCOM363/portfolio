@@ -30,7 +30,7 @@ const routes = [
   },
   {
     name: "Blogs",
-    path: "/blogs",
+    path: "/blog",
   },
   {
     name: "About",
