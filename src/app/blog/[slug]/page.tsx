@@ -7,6 +7,7 @@ import { getBlogs, getBlog } from "@/lib/blog";
 import { getBlogViews } from "@/lib/viewTracker";
 import ViewCounter from "@/components/ViewCounter";
 
+// generate metadate for each blog
 export async function generateMetadata({
   params,
 }: {
@@ -35,6 +36,7 @@ export async function generateMetadata({
   };
 }
 
+// generate static params of each blog
 export async function generateStaticParams() {
   const posts = await getBlogs();
 
@@ -50,6 +52,7 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
     notFound();
   }
 
+  // get blog views
   const viewCount = await getBlogViews((await params).slug);
 
   return (

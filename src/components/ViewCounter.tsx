@@ -20,7 +20,7 @@ export default function ViewCounter({
     const updateViews = async () => {
       try {
         const response = await fetch(`/api/views/${slug}`, {
-          method: trackView ? "POST" : "GET",
+          method: trackView ? "POST" : "GET", // increment view only after visiting the blog
         });
 
         if (response.ok) {

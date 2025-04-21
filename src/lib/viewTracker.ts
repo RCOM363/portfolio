@@ -3,6 +3,7 @@ import redis from "./redis";
 
 const VIEW_KEY_PREFIX = "blog:view:";
 
+// get views of a single blog
 export async function getBlogViews(slug: string): Promise<number> {
   try {
     const views = await redis.get<number>(`${VIEW_KEY_PREFIX}${slug}`);
@@ -13,6 +14,7 @@ export async function getBlogViews(slug: string): Promise<number> {
   }
 }
 
+// increment blog views
 export async function incrementBlogViews(slug: string): Promise<number> {
   try {
     const views = await redis.incr(`${VIEW_KEY_PREFIX}${slug}`);
@@ -23,13 +25,16 @@ export async function incrementBlogViews(slug: string): Promise<number> {
   }
 }
 
+// get views of all blogs
 export async function getBulkBlogViews(
   slugs: string[]
 ): Promise<Record<string, number>> {
   if (!slugs.length) return {};
 
   try {
+    // create redis pipeline
     const pipeline = redis.pipeline();
+    // fetch views for each blog using slug
     slugs.forEach((slug) => {
       pipeline.get(`${VIEW_KEY_PREFIX}${slug}`);
     });

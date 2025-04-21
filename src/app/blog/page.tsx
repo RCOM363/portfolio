@@ -20,8 +20,10 @@ export const metadata: Metadata = {
 };
 
 async function Blogs() {
+  // get blogs
   const blogs = await getBlogs();
   const slugs = blogs.map((blog) => blog.slug);
+  // get views for each blog
   const viewsMap = await getBulkBlogViews(slugs);
   return (
     <div className="w-full px-4 py-5 lg:py-4">
