@@ -39,7 +39,7 @@ function Projects() {
                     src={project.image}
                     alt={project.name}
                     width={700}
-                    className="transition duration-300 ease-in-out hover:scale-110 rounded-t-lg "
+                    className="transition duration-300 ease-in-out rounded-t-lg "
                   />
                 </BlurFade>
               </Link>
@@ -59,7 +59,7 @@ function Projects() {
                     {project.technologies.map((t) => (
                       <span
                         key={t}
-                        className="inline-flex items-center text-[12px] px-2.5 py-1 border-none bg-accent rounded-lg"
+                        className="bg-accent px-2 py-1 rounded-md text-[12px]"
                       >
                         {t}
                       </span>

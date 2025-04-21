@@ -31,8 +31,18 @@ function ExperienceSection() {
                   title={e.title}
                   duration={e.duration}
                 ></AccordionTrigger>
-                <AccordionContent className="text-sm px-2 leading-relaxed">
+                <AccordionContent className="text-sm leading-relaxed">
                   {e.description}
+                  <div className="w-full flex flex-wrap items-center text-[12px] gap-2 py-2">
+                    {e.technologies.map((t) => (
+                      <span
+                        key={t}
+                        className="bg-accent px-2 py-1 rounded-md text-[12px]"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </AccordionContent>
               </AccordionItem>
             </BlurFade>
