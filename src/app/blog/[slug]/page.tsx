@@ -88,7 +88,8 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
           <h1 className="text-4xl font-bold mb-2">{blog.title}</h1>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <div className="flex flex-wrap justify-between">
+          {/* date & views */}
+          <div className="flex flex-col sm:flex-row justify-between">
             <p className="text-gray-600">By Rahul Lankeppanavar</p>
             <div className="flex items-center gap-2 text-gray-600">
               {/* date */}
