@@ -8,8 +8,6 @@ import { getBulkBlogViews } from "@/lib/viewTracker";
 import { Calendar } from "lucide-react";
 import ViewCounter from "@/components/ViewCounter";
 
-const BLUR_FADE_DELAY = 0.04;
-
 export const metadata: Metadata = {
   title: "My Blog - All blogs",
   description: "Read my thoughts on web development, technology, and more.",
@@ -19,6 +17,8 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
+
+const BLUR_FADE_DELAY = 0.04;
 
 async function Blogs() {
   // get blogs
@@ -50,9 +50,13 @@ async function Blogs() {
                   </div>
                   {/* date & views */}
                   <div className="w-full flex items-center lg:items-end gap-2 lg:gap-0 lg:w-auto lg:flex-col">
-                  <span className="flex items-center gap-1">
-                    <Calendar size={15}/>
-                    {new Date(blog.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                    <span className="flex items-center gap-1">
+                      <Calendar size={15} />
+                      {new Date(blog.date).toLocaleDateString("en-US", {
+                        month: "long",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
                     </span>
                     <ViewCounter
                       slug={blog.slug}

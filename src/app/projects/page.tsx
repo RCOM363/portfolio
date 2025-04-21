@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
 
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { projects } from "@/data/projects";
@@ -9,6 +10,17 @@ import { GithubIcon } from "@/components/ui/github";
 import { LinkIcon } from "@/components/ui/link";
 
 const BLUR_FADE_DELAY = 0.04;
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "Take a look at the web apps and software projects I’ve built.",
+  openGraph: {
+    title: "Projects",
+    description:
+      "Take a look at the web apps and software projects I’ve built.",
+    type: "website",
+  },
+};
 
 function Projects() {
   return (

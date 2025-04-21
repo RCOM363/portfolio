@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { Metadata } from "next";
 
 import { BlurFade } from "@/components/magicui/blur-fade";
 import {
@@ -11,6 +12,16 @@ import img1 from "../../../public/richie/richieImg1.webp";
 import img2 from "../../../public/richie/richieImg2.webp";
 import img3 from "../../../public/richie/richieImg3.webp";
 import img4 from "../../../public/richie/richieImg4.webp";
+
+export const metadata: Metadata = {
+  title: "About Me - Rahul Lankeppanavar",
+  description: "Get to know me, and what drives me as a developer.",
+  openGraph: {
+    title: "About Me - Rahul Lankeppanavar",
+    description: "Get to know me, and what drives me as a developer.",
+    type: "website",
+  },
+};
 
 const BLUR_FADE_DELAY = 0.04;
 
