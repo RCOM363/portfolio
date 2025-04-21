@@ -7,10 +7,10 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
-import img1 from "../../../public/Richie/richieImg1.webp";
-import img2 from "../../../public/Richie/richieImg2.webp";
-import img3 from "../../../public/Richie/richieImg3.webp";
-import img4 from "../../../public/Richie/richieImg4.webp";
+import img1 from "../../../public/richie/richieImg1.webp";
+import img2 from "../../../public/richie/richieImg2.webp";
+import img3 from "../../../public/richie/richieImg3.webp";
+import img4 from "../../../public/richie/richieImg4.webp";
 
 const BLUR_FADE_DELAY = 0.04;
 
