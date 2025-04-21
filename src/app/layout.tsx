@@ -16,8 +16,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rahul Lankeppanavar",
-  description: "Developer Portfolio",
+  title: "Rahul Labkeppanavar",
+  description:
+    "Fullstack developer building modern web applications with MERN stack and beyond.",
+  openGraph: {
+    title: "Rahul Lankeppanavar",
+    description:
+      "Fullstack developer building modern web applications with MERN stack and beyond.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
