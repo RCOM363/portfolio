@@ -21,27 +21,14 @@ function ThemeToggle() {
   if (!mounted) {
     return (
       <div>
-        <MoonIcon
-          size={25}
-          className="w-full rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
-        />
+        <MoonIcon size={25} />
       </div>
     );
   }
 
   return (
     <div onClick={toggleTheme}>
-      {theme === "dark" ? (
-        <MoonIcon
-          size={25}
-          className="w-full rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
-        />
-      ) : (
-        <SunIcon
-          size={25}
-          className="w-full rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
-        />
-      )}
+      {theme === "dark" ? <MoonIcon size={25} /> : <SunIcon size={25} />}
     </div>
   );
 }
