@@ -34,7 +34,7 @@ async function Blogs() {
         </h1>
       </BlurFade>
       {/* blogs list */}
-      <div className="flex flex-col gap-2 mt-4">
+      <div className="flex flex-col gap-2 lg:py-4 mt-4">
         {blogs.map((blog, index: number) => (
           <BlurFade
             delay={BLUR_FADE_DELAY * 3 + 0.05 * index}
