@@ -7,6 +7,13 @@ import { usePathname } from "next/navigation";
 import { BlurFade } from "../magicui/blur-fade";
 import { CgMenuRightAlt } from "react-icons/cg";
 import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+import {
   Dialog,
   DialogClose,
   DialogContent,
@@ -50,9 +57,21 @@ function Navbar() {
       className="sticky top-0 z-10 bg-[#ffffff] dark:bg-[#0a0a0a]"
     >
       <nav className="flex items-center justify-between px-4 py-3 lg:py-6 ">
+        {/* logo */}
         <div>
           <Link href={"/"}>
-            <span className="text-xl lg:text-3xl font-extrabold">RCOM363</span>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger className="cursor-pointer">
+                  <span className="text-xl lg:text-3xl font-extrabold">
+                    RCOM363
+                  </span>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <span className="font-bold">⚡Conqueror of Miseries</span>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </Link>
         </div>
         <div className="flex items-center justify-end gap-2 font-semibold">
