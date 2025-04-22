@@ -1,13 +1,5 @@
-import HeroSection from "@/components/HeroSection";
-import ExperienceSection from "@/components/ExperienceSection";
-import TechnologiesSection from "@/components/TechnologiesSection";
+import Home from "./Home";
 
-export default function Home() {
-  return (
-    <div className="w-full px-4">
-      <HeroSection />
-      <ExperienceSection />
-      <TechnologiesSection />
-    </div>
-  );
+export default function Page() {
+  return <Home />;
 }

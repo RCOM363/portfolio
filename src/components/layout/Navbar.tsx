@@ -51,7 +51,9 @@ function Navbar() {
     >
       <nav className="flex items-center justify-between px-4 py-3 lg:py-6 ">
         <div>
-          <span className="text-xl lg:text-3xl font-extrabold">RCOM363</span>
+          <Link href={"/"}>
+            <span className="text-xl lg:text-3xl font-extrabold">RCOM363</span>
+          </Link>
         </div>
         <div className="flex items-center justify-end gap-2 font-semibold">
           {/* desktop navigation */}
