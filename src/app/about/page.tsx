@@ -1,17 +1,8 @@
 import React from "react";
-import Image from "next/image";
 import { Metadata } from "next";
 
 import { BlurFade } from "@/components/magicui/blur-fade";
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card";
-import img1 from "../../../public/richie/richieImg1.webp";
-import img2 from "../../../public/richie/richieImg2.webp";
-import img3 from "../../../public/richie/richieImg3.webp";
-import img4 from "../../../public/richie/richieImg4.webp";
+import DogCard from "@/components/DogCard";
 
 export const metadata: Metadata = {
   title: "About Me - Rahul Lankeppanavar",
@@ -25,7 +16,6 @@ export const metadata: Metadata = {
 
 const BLUR_FADE_DELAY = 0.04;
 
-const images = [img1, img2, img3, img4];
 
 function About() {
   return (
@@ -48,24 +38,7 @@ function About() {
           Outside of tech, you&apos;ll usually find me geeking out over the
           latest flims/series, gaming for fun and chilling with my{" "}
           {/* richie photo */}
-          <HoverCard>
-            <HoverCardTrigger className="font-semibold italic">
-              Dog🐾
-            </HoverCardTrigger>
-            <HoverCardContent className="flex items-center justify-center -space-x-3">
-              {images.map((img, index) => (
-                <Image
-                  src={img}
-                  alt={`richie img ${index}`}
-                  width={70}
-                  quality={100}
-                  key={index}
-                  className="rounded-full border-2 border-white dark:border-gray-800 hover:scale-110 transition-all duration-300"
-                />
-              ))}
-            </HoverCardContent>
-          </HoverCard>{" "}
-          — the real MVP.
+          <DogCard /> — the real MVP.
         </p>
       </BlurFade>
       <BlurFade delay={BLUR_FADE_DELAY * 5} className="py-2">

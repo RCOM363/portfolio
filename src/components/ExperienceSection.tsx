@@ -19,30 +19,34 @@ function ExperienceSection() {
       </BlurFade>
       <div>
         <Accordion type="single" collapsible>
-          {experiences.map((e, index: number) => (
+          {experiences.map((experience, index: number) => (
             <BlurFade
               delay={BLUR_FADE_DELAY * 3 + index * 0.05}
-              key={e.company}
+              key={experience.company}
               inView
             >
-              <AccordionItem value={e.company}>
+              <AccordionItem value={experience.company}>
                 <AccordionTrigger
-                  company={e.company}
-                  title={e.title}
-                  duration={e.duration}
+                  company={experience.company}
+                  title={experience.title}
+                  duration={experience.duration}
                 ></AccordionTrigger>
                 <AccordionContent className="text-sm leading-relaxed">
-                  {e.description}
-                  <div className="w-full flex flex-wrap items-center text-[12px] gap-2 py-2">
-                    {e.technologies.map((t) => (
-                      <span
-                        key={t}
-                        className="bg-accent px-2 py-1 rounded-md text-[12px]"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
+                  <BlurFade delay={BLUR_FADE_DELAY * 2}>
+                    {experience.description}
+                  </BlurFade>
+                  <BlurFade delay={BLUR_FADE_DELAY * 3}>
+                    <div className="w-full flex flex-wrap items-center text-[12px] gap-2 py-2">
+                      {experience.technologies.map((technology) => (
+                        <span
+                          key={technology}
+                          className="bg-accent px-2 py-1 rounded-md text-[12px]"
+                        >
+                          {technology}
+                        </span>
+                      ))}
+                    </div>
+                  </BlurFade>
                 </AccordionContent>
               </AccordionItem>
             </BlurFade>

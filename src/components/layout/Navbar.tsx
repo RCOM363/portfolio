@@ -40,9 +40,16 @@ const routes = [
 
 function Navbar() {
   const pathname = usePathname();
+  const isActive = (routePath: string) => {
+    if (routePath === "/") return pathname === "/";
+    return pathname.startsWith(routePath);
+  };
   return (
-    <BlurFade delay={BLUR_FADE_DELAY}>
-      <nav className="sticky top-0 z-10 flex items-center justify-between px-4 py-3 lg:py-6 backdrop-blur-[4px]">
+    <BlurFade
+      delay={BLUR_FADE_DELAY}
+      className="sticky top-0 z-10 bg-[#ffffff] dark:bg-[#0a0a0a]"
+    >
+      <nav className="flex items-center justify-between px-4 py-3 lg:py-6 ">
         <div>
           <span className="text-xl lg:text-3xl font-extrabold">RCOM363</span>
         </div>
@@ -53,7 +60,7 @@ function Navbar() {
               <Link
                 href={route.path}
                 className={`${
-                  pathname === route.path
+                  isActive(route.path)
                     ? "text-black dark:text-white"
                     : "text-black/60 dark:text-white/60"
                 } transition-colors`}
