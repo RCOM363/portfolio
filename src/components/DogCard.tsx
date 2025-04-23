@@ -44,6 +44,7 @@ function DogCard() {
           alt={`richie img ${index}`}
           width={70}
           quality={100}
+          placeholder="blur"
           className="rounded-full border-2 border-white dark:border-gray-800 hover:scale-110 transition-all duration-300"
         />
       ))}

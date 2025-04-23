@@ -6,14 +6,12 @@ import { Eye } from "lucide-react";
 
 export default function ViewCounter({
   slug,
-  initialViews = 0,
   trackView = true,
 }: {
   slug: string;
-  initialViews: number;
   trackView?: boolean;
 }) {
-  const [views, setViews] = useState(initialViews);
+  const [views, setViews] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -37,10 +35,17 @@ export default function ViewCounter({
     updateViews();
   }, [slug, trackView]);
 
+  function formatViews(num: number) {
+    if (num >= 1e9) return (num / 1e9).toFixed(1) + "B";
+    if (num >= 1e6) return (num / 1e6).toFixed(1) + "M";
+    if (num >= 1e3) return (num / 1e3).toFixed(1) + "K";
+    return num.toString();
+  }
+
   return (
     <div className=" flex items-center gap-1 text-gray-600">
       <Eye size={15} />
-      {isLoading ? `${initialViews} views` : `${views} views`}
+      {isLoading ? `---` : `${formatViews(views)}`}
     </div>
   );
 }

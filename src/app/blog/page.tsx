@@ -4,7 +4,6 @@ import { Metadata } from "next";
 
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { getBlogs } from "@/lib/blog";
-import { getBulkBlogViews } from "@/lib/viewTracker";
 import { Calendar } from "lucide-react";
 import ViewCounter from "@/components/ViewCounter";
 
@@ -23,9 +22,6 @@ const BLUR_FADE_DELAY = 0.04;
 async function Blogs() {
   // get blogs
   const blogs = await getBlogs();
-  const slugs = blogs.map((blog) => blog.slug);
-  // get views for each blog
-  const viewsMap = await getBulkBlogViews(slugs);
   return (
     <div className="w-full px-4 py-5 lg:py-4">
       <BlurFade delay={BLUR_FADE_DELAY * 2}>
@@ -60,7 +56,6 @@ async function Blogs() {
                     </span>
                     <ViewCounter
                       slug={blog.slug}
-                      initialViews={viewsMap[blog.slug] || 0}
                       trackView={false}
                     />
                   </div>

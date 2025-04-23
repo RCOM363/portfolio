@@ -25,6 +25,9 @@ export const metadata: Metadata = {
       "Fullstack developer building modern web applications with MERN stack and beyond.",
     type: "website",
   },
+  icons: {
+    icon: [{ url: "./favicon.ico" }],
+  },
 };
 
 export default function RootLayout({

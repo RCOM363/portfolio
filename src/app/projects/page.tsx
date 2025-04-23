@@ -40,6 +40,7 @@ function Projects() {
                     alt={project.name}
                     width={700}
                     quality={100}
+                    placeholder="blur"
                     className="rounded-md"
                   />
                 </BlurFade>
