@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rahul Labkeppanavar",
+  title: "Rahul Lankeppanavar",
   description:
     "Fullstack developer building modern web applications with MERN stack and beyond.",
   openGraph: {
