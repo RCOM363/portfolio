@@ -7,11 +7,11 @@ import { MoonIcon } from "./ui/moon";
 import { SunIcon } from "./ui/sun";
 
 function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    setTheme(resolvedTheme === "light" ? "dark" : "light");
   };
 
   useEffect(() => {
@@ -28,7 +28,11 @@ function ThemeToggle() {
 
   return (
     <div onClick={toggleTheme}>
-      {theme === "dark" ? <MoonIcon size={25} /> : <SunIcon size={25} />}
+      {resolvedTheme === "dark" ? (
+        <MoonIcon size={25} />
+      ) : (
+        <SunIcon size={25} />
+      )}
     </div>
   );
 }
