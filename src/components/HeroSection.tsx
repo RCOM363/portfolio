@@ -41,7 +41,7 @@ function HeroSection() {
             </span>{" "}
             Developer from{" "}
             <span className="whitespace-nowrap px-2.5 bg-accent hover:bg-accent/80 transition-colors border-2 rounded-lg cursor-pointer">
-              📍Karnatak, India
+              📍Karnataka, India
             </span>{" "}
             with a focus on the{" "}
             <span className="px-2.5 bg-accent hover:bg-accent/80 transition-colors border-2 rounded-lg cursor-pointer">
@@ -65,10 +65,7 @@ function HeroSection() {
             >
               <FileTextIcon size={25} />
             </Link>
-            <Link
-              href={"https://www.github.com/RCOM363"}
-              target="_blank"
-            >
+            <Link href={"https://www.github.com/RCOM363"} target="_blank">
               <GithubIcon size={25} />
             </Link>
             <Link

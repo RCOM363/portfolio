@@ -36,7 +36,7 @@ function About() {
         <p>
           {" "}
           Outside of tech, you&apos;ll usually find me geeking out over the
-          latest flims/series, gaming for fun and chilling with my{" "}
+          latest movies/series, gaming for fun and chilling with my{" "}
           {/* richie photo */}
           <DogCard /> — the real MVP.
         </p>
