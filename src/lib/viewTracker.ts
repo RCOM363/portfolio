@@ -24,31 +24,3 @@ export async function incrementBlogViews(slug: string): Promise<number> {
     return 0;
   }
 }
-
-// get views of all blogs
-export async function getBulkBlogViews(
-  slugs: string[]
-): Promise<Record<string, number>> {
-  if (!slugs.length) return {};
-
-  try {
-    // create redis pipeline
-    const pipeline = redis.pipeline();
-    // fetch views for each blog using slug
-    slugs.forEach((slug) => {
-      pipeline.get(`${VIEW_KEY_PREFIX}${slug}`);
-    });
-
-    const results = await pipeline.exec();
-
-    return Object.fromEntries(
-      slugs.map((slug, index) => [
-        slug,
-        typeof results[index] === "number" ? results[index] : 0,
-      ])
-    );
-  } catch (error) {
-    console.error("Error getting bulk post views:", error);
-    return Object.fromEntries(slugs.map((slug) => [slug, 0]));
-  }
-}

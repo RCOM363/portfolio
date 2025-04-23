@@ -8,7 +8,6 @@ import { MoveLeft, Calendar } from "lucide-react";
 
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { getBlogs, getBlog } from "@/lib/blog";
-import { getBlogViews } from "@/lib/viewTracker";
 import ViewCounter from "@/components/ViewCounter";
 
 // generate metadate for each blog
@@ -67,9 +66,6 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
     notFound();
   }
 
-  // get blog views
-  const viewCount = await getBlogViews((await params).slug);
-
   return (
     <div className="w-full px-4 py-5 lg:py-4">
       <div className="flex flex-col">
@@ -102,7 +98,7 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
                 })}
               </span>
               {/* views */}
-              <ViewCounter slug={blog.slug} initialViews={viewCount} />
+              <ViewCounter slug={blog.slug} />
             </div>
           </div>
         </BlurFade>
