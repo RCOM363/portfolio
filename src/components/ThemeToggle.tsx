@@ -19,11 +19,7 @@ function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return (
-      <div>
-        <MoonIcon size={25} />
-      </div>
-    );
+    return null;
   }
 
   return (
