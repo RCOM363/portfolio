@@ -9,7 +9,7 @@ export const projects = [
     description:
       "MystTxt is a fun and secure anonymous messaging platform built with Next.js. Create an account, share your unique link, and receive anonymous messages.",
     source: "https://github.com/RCOM363/myst_txt",
-    link: "https://github.com/RCOM363/myst_txt",
+    link: "https://myst-txt.rcom363.in/",
     technologies: [
       "Typescript",
       "Tailwind CSS",
