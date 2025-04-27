@@ -22,7 +22,7 @@ import {
 import { RiNextjsFill } from "react-icons/ri";
 import { BiLogoPostgresql } from "react-icons/bi";
 
-export const icons = {
+export const technologies = {
   // languages
   //Java: FaJava,
   //Python: SiPython,
@@ -30,20 +30,20 @@ export const icons = {
   Typescript: SiTypescript,
   // dev
   Tailwind: SiTailwindcss,
-  React: FaReact,
+  Reactjs: FaReact,
   Redux: SiRedux,
   ReactQuery: SiReactquery,
   Nextjs: RiNextjsFill,
   Nodejs: FaNodeJs,
-  Express: SiExpress,
-  Docker: FaDocker,
-  AWS: FaAws,
+  Expressjs: SiExpress,
   // db
   MongoDB: SiMongodb,
   // Mongoose: SiMongoose,
   PostgreSQL: BiLogoPostgresql,
   // Prisma: SiPrisma,
   Redis: SiRedis,
-  // tools
+  // devops
   Git: FaGitAlt,
+  Docker: FaDocker,
+  AWS: FaAws,
 };

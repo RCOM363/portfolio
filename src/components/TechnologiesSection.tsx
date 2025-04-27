@@ -1,7 +1,7 @@
 import React from "react";
 
 import { BlurFade } from "./magicui/blur-fade";
-import { icons } from "@/lib/icons";
+import { technologies } from "@/data/technologies";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -12,7 +12,7 @@ function TechnologiesSection() {
         <h3 className="text-xl font-bold">Technologies</h3>
       </BlurFade>
       <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-5 gap-2 mt-4">
-        {Object.entries(icons).map(([name, IconComponent]) => (
+        {Object.entries(technologies).map(([name, IconComponent]) => (
           <BlurFade delay={BLUR_FADE_DELAY * 8} key={name} inView>
             <div className="flex flex-col items-center justify-center gap-2 px-2 py-3 border-1 rounded-lg hover:bg-muted/40 transition-colors">
               <IconComponent size={24} />
