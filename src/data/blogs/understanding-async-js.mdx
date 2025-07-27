@@ -1,0 +1,168 @@
+---
+title: "Understanding Asynchronous JavaScript"
+description: "Learn how JS uses Promises, async/await, and the event loop to perform non‑blocking operations in a single‑threaded environment."
+date: "2025-07-27"
+slug: "understanding-async-js"
+tags: ["promises", "async/await", "runtime environment", "event loop"]
+---
+
+JavaScript (JS) runs on a **single thread**, processing code **sequentially**, one line at a time. Yet many real-world tasks like reading files, querying databases, or fetching data from a server take longer than simple tasks. If JS waited for each of these tasks to finish before moving on, web pages and servers would freeze.
+
+For example, lets make an simple `GET` request to an API
+
+```javascript
+let response = fetch("https://jsonplaceholder.typicode.com/todos/1");
+console.log("Todos: ", response);
+```
+
+The above code doesn't log the data because fetch which is a longer running task has not finished processing yet so it doesn't return an value immediately rather it return a `Promise`.
+
+# Promises
+
+The `Promise` is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+
+You can think of it like lending money to a friend they “promise” to pay you back later. You don’t get the cash immediately, you wait until they fulfill (or break) that promise.
+
+## Creating a Promise
+
+A `Promise` object can be created using `Promise()` constructor, which takes an _executor_ function which receives two arguments `resolve` and `reject`. Calling `resolve(value)` marks the promise as **fulfilled** and sets its result to `value`, while calling `reject(reason)` marks it as **rejected** with the given `reason`.
+
+```javascript
+const myPromise = new Promise((resolve, reject) => {
+  const success = Math.random() > 0.5;
+  if (success) {
+    resolve("Operation succeeded!");
+  } else {
+    reject("Operation failed!");
+  }
+});
+```
+
+A `Promise` object has three key components:
+
+- **Promise State** :
+  Represents the state of a `Promise`, has three states
+  1. `pending` (initial)
+  2. `fulfilled` (after `resolve`)
+  3. `rejected` (after `reject`)
+- **Promise Result** : The value passed to `resolve` or reason passed to `reject`
+- **Promise Reactions** : The callback functions registered via `.then()`, `.catch()`, and `.finally()` that run when the promise settles.
+
+## Handling a Promise
+
+Special chaining methods are used to handle `Promise` results, each accepting a callback.
+
+- `.then(onFulfilled)` - runs when the promise is fulfilled
+- `.catch(onRejected)` - runs when the promise is rejected
+- `.finally(onSettled)` - runs after either outcome
+
+```javascript
+myPromise
+  .then((value) => {
+    console.log("Then:", value);
+  })
+  .catch((error) => {
+    console.error("Catch:", error);
+  })
+  .finally(() => {
+    console.log("Finally: Cleanup or follow‑up tasks");
+  });
+
+console.log("This logs before the Promise settles.");
+```
+
+**Output**
+
+```bash
+This logs before the Promise settles.
+Then: Operation succeeded!   // or Catch: Operation failed!
+Finally: Cleanup or follow‑up tasks
+```
+
+Here, the `console.log()` outside the promise runs immediately, demonstrating that promises handle asynchronous operations without blocking the main thread.
+
+# async/await
+
+`async/await` offers a more readable, "synchronous" way to work with Promises. To use them first a function is marked as `async` and `await` is used before a `Promise` to pause until it settles.
+
+Let's take the same `GET` API example
+
+```javascript
+async function getTodos() {
+  try {
+    let response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+    console.log("Todo: ", response.json());
+  } catch (error) {
+    console.error("Erros: ", error);
+  }
+}
+
+getTodos();
+console.log("This logs before the async function finishes.");
+```
+
+Here, `await fetch(...)` pauses inside `getTodo()` until the network call completes, so the `console.log()` in the next line also waits until the `Promise` is resolved. Errors bubble into the catch block.
+
+# The JavaScript Runtime
+
+Under the hood, JS engines (like V8 in Chrome or Node.js) use several components for async behavior.
+
+![js-runtime-environment](https://miro.medium.com/v2/resize:fit:1400/1*AcLc2DIM6CX0fslWJ96BNQ.png)
+
+1. **JS Engine** :
+   - **Call Stack** : Executes one task at a time.
+   - **Heap Memory** : Manages memory for object, variables and functions execution contexts.
+2. **Web API** : Provides async features like `setTimeout`, HTTP requests, file I/O etc.
+3. **Callback (Task) Queue** : Holds callbacks from APIs like `setTimeout`, DOM events etc.
+4. **Microtask Queue** : Holds promise handlers (`.then()`, `.catch()`, `.finally()`), results of `async/await` and micro task.
+5. **Event Loop**
+   The event loop continuously watches the **Call Stack** and, whenever it’s empty, pulls in tasks from the queues. It always drains the **Microtask Queue** first running all its tasks in the stack before taking the next task from the **Callback Queue**.
+
+Consider the below code snippet
+
+```javascript
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Timeout callback");
+}, 100);
+
+Promise.resolve().then(() => console.log("Promise then"));
+
+console.log("End");
+```
+
+**Output**
+
+```bash
+Start
+End
+Promise then
+Timeout callback
+```
+
+Let's understand how JS executes code step by step
+
+1. Logs "Start".
+2. Schedules a `setTimeout` to **Callback Queue**.
+3. `Promise` object is immediately resolved and its `.then()` callback is added to **Microtask Queue**.
+4. Logs "End".
+5. **Call Stack** is empty, so event loop runs all tasks from **Microtask Queue** and logs "Promise then".
+6. After **Microtask Queue** is empty, so event loop runs all tasks from **Callback Queue** and logs "Timeout callback".
+
+**Note** : The delay passed to `setTimeout` is the delay before its callback is placed on the **Callback Queue** not a guaranteed wait before its execution.
+
+# Conclusion
+
+- JavaScript is single‑threaded but handles asynchronous work using Promises, `async/await`, and the event loop.
+- Promises let you attach callbacks for success or failure without blocking the thread.
+- `async/await` makes Promise‑based code read like synchronous code.
+- The event loop coordinates tasks and microtasks to ensure non‑blocking, ordered execution.
+
+# References
+
+For a deeper dive into JavaScript’s asynchronous model, check out:
+
+- [Event Loop, Web APIs, Micro(task) Queue by Lydia Hallie](https://youtu.be/eiC58R16hb8)
+- [Promise Execution by Lydia Hallie](https://youtu.be/Xs1EMmBLpn4)
+- [Javascript Promises vs Async Await by Roberts Dev Talk](https://youtu.be/li7FzDHYZpc)
