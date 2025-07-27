@@ -9,6 +9,7 @@ import { MoveLeft, Calendar } from "lucide-react";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { getBlogs, getBlog } from "@/lib/blog";
 import ViewCounter from "@/components/ViewCounter";
+import { ShareButton } from "@/components/ShareButton";
 
 // generate metadate for each blog
 export async function generateMetadata({
@@ -99,6 +100,8 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
               </span>
               {/* views */}
               <ViewCounter slug={blog.slug} />
+              {/* Share */}
+              <ShareButton />
             </div>
           </div>
         </BlurFade>

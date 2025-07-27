@@ -40,7 +40,7 @@ async function Blogs() {
             <Link href={`/blog/${blog.slug}`}>
               <div className="flex flex-col gap-1 hover:bg-accent/60 p-4 border-2 rounded-lg">
                 <div className="w-full flex flex-wrap items-start justify-between">
-                  <div>
+                  <div className="max-w-[75%]">
                     <h2 className="text-xl font-bold">{blog.title}</h2>
                     <p className="">{blog.description}</p>
                   </div>
@@ -54,10 +54,7 @@ async function Blogs() {
                         year: "numeric",
                       })}
                     </span>
-                    <ViewCounter
-                      slug={blog.slug}
-                      trackView={false}
-                    />
+                    <ViewCounter slug={blog.slug} trackView={false} />
                   </div>
                 </div>
                 {/* tags */}
