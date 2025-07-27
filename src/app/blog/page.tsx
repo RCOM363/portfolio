@@ -40,9 +40,9 @@ async function Blogs() {
             <Link href={`/blog/${blog.slug}`}>
               <div className="flex flex-col gap-1 hover:bg-accent/60 p-4 border-2 rounded-lg">
                 <div className="w-full flex flex-wrap items-start justify-between">
-                  <div className="max-w-[75%]">
+                  <div className="md:max-w-[75%]">
                     <h2 className="text-xl font-bold">{blog.title}</h2>
-                    <p className="">{blog.description}</p>
+                    <p>{blog.description}</p>
                   </div>
                   {/* date & views */}
                   <div className="w-full flex items-center lg:items-end gap-2 lg:gap-0 lg:w-auto lg:flex-col">

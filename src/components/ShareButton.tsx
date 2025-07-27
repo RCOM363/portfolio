@@ -11,7 +11,9 @@ export function ShareButton() {
     const url = window.location.origin + pathname;
     try {
       await navigator.clipboard.writeText(url);
-      toast("Link copied to clipboard");
+      toast("Link copied to clipboard", {
+        position:"top-right"
+      });
     } catch (err) {
       console.error("Failed to copy:", err);
     }
