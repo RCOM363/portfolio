@@ -43,7 +43,7 @@ export default function ViewCounter({
   }
 
   return (
-    <div className=" flex items-center gap-1 text-gray-600">
+    <div className="flex items-center gap-1 text-gray-600">
       <Eye size={15} />
       {isLoading ? `---` : `${formatViews(views)}`}
     </div>

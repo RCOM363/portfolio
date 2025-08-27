@@ -45,7 +45,7 @@ function DogCard() {
           width={70}
           quality={100}
           placeholder="blur"
-          className="rounded-full border-2 border-white dark:border-gray-800 hover:scale-110 transition-all duration-300"
+          className="rounded-full border-2 border-white transition-all duration-300 hover:scale-110 dark:border-gray-800"
         />
       ))}
     </div>
@@ -53,14 +53,14 @@ function DogCard() {
 
   return isMobile ? (
     <Popover>
-      <PopoverTrigger className="font-semibold italic cursor-pointer">
+      <PopoverTrigger className="cursor-pointer font-semibold italic">
         Dog🐾
       </PopoverTrigger>
       <PopoverContent>{content}</PopoverContent>
     </Popover>
   ) : (
     <HoverCard>
-      <HoverCardTrigger className="font-semibold italic cursor-pointer">
+      <HoverCardTrigger className="cursor-pointer font-semibold italic">
         Dog🐾
       </HoverCardTrigger>
       <HoverCardContent>{content}</HoverCardContent>

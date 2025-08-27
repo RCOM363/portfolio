@@ -16,12 +16,11 @@ export const metadata: Metadata = {
 
 const BLUR_FADE_DELAY = 0.04;
 
-
 function About() {
   return (
     <div className="w-full px-4 py-5 lg:py-4">
       <BlurFade delay={BLUR_FADE_DELAY * 2}>
-        <h1 className="text-2xl font-semibold pb-2">Hello, World👋</h1>
+        <h1 className="pb-2 text-2xl font-semibold">Hello, World👋</h1>
       </BlurFade>
       <BlurFade delay={BLUR_FADE_DELAY * 3} className="py-2">
         <p>

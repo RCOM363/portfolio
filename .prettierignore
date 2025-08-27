@@ -1,0 +1,50 @@
+# Dependencies & build output
+node_modules
+**/node_modules
+dist
+build
+out
+public
+.next
+.cache
+.vite
+.parcel-cache
+
+# Binary / media / fonts
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
+*.svg
+*.webp
+*.woff
+*.woff2
+*.ttf
+*.zip
+*.tgz
+
+# Lockfiles and package archives
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+*.tgz
+
+# Logs / coverage
+coverage
+coverage-final.json
+reports
+*.log
+
+# IDE & system files
+.vscode
+.idea
+.DS_Store
+
+# Env files
+.env
+.env.*.local
+.env.local
+
+# Optional: ignore generated storybook static site
+storybook-static

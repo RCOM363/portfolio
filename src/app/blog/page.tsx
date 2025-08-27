@@ -30,7 +30,7 @@ async function Blogs() {
         </h1>
       </BlurFade>
       {/* blogs list */}
-      <div className="flex flex-col gap-2 lg:py-4 mt-4">
+      <div className="mt-4 flex flex-col gap-2 lg:py-4">
         {blogs.map((blog, index: number) => (
           <BlurFade
             delay={BLUR_FADE_DELAY * 3 + 0.05 * index}
@@ -38,14 +38,14 @@ async function Blogs() {
             inView
           >
             <Link href={`/blog/${blog.slug}`}>
-              <div className="flex flex-col gap-1 hover:bg-accent/60 p-4 border-2 rounded-lg">
-                <div className="w-full flex flex-wrap items-start justify-between">
+              <div className="hover:bg-accent/60 flex flex-col gap-1 rounded-lg border-2 p-4">
+                <div className="flex w-full flex-wrap items-start justify-between">
                   <div className="md:max-w-[75%]">
                     <h2 className="text-xl font-bold">{blog.title}</h2>
                     <p>{blog.description}</p>
                   </div>
                   {/* date & views */}
-                  <div className="w-full flex items-center lg:items-end gap-2 lg:gap-0 lg:w-auto lg:flex-col">
+                  <div className="flex w-full items-center gap-2 lg:w-auto lg:flex-col lg:items-end lg:gap-0">
                     <span className="flex items-center gap-1">
                       <Calendar size={15} />
                       {new Date(blog.date).toLocaleDateString("en-US", {
@@ -62,7 +62,7 @@ async function Blogs() {
                   {blog.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="bg-accent px-2 py-1 rounded-md text-sm"
+                      className="bg-accent rounded-md px-2 py-1 text-sm"
                     >
                       {tag}
                     </span>

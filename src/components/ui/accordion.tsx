@@ -45,22 +45,22 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-center justify-between gap-4 rounded-md py-2 text-left text-sm font-medium transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]_.icon]:rotate-180 cursor-pointer",
+          "focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 cursor-pointer items-center justify-between gap-4 rounded-md py-2 text-left text-sm font-medium transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]_.icon]:rotate-180",
           className
         )}
         {...props}
       >
         <div className="w-full">
-          <div className="flex justify-between w-full items-center gap-2">
+          <div className="flex w-full items-center justify-between gap-2">
             <div className="flex items-center justify-start gap-1">
-              <p className="font-semibold text-sm">{title}</p>
+              <p className="text-sm font-semibold">{title}</p>
               <ChevronDownIcon className="icon text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200" />
             </div>
-            <span className="text-sm text-muted-foreground text-right">
+            <span className="text-muted-foreground text-right text-sm">
               {duration}
             </span>
           </div>
-          <p className="text-sm text-muted-foreground">{company}</p>
+          <p className="text-muted-foreground text-sm">{company}</p>
         </div>
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>

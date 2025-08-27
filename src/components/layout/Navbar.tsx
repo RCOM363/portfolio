@@ -56,14 +56,14 @@ function Navbar() {
       delay={BLUR_FADE_DELAY}
       className="sticky top-0 z-10 bg-[#ffffff] dark:bg-[#0a0a0a]"
     >
-      <nav className="flex items-center justify-between px-4 py-3 lg:py-6 ">
+      <nav className="flex items-center justify-between px-4 py-3 lg:py-6">
         {/* logo */}
         <div>
           <Link href={"/"}>
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger className="cursor-pointer">
-                  <span className="text-xl lg:text-3xl font-extrabold">
+                  <span className="text-xl font-extrabold lg:text-3xl">
                     RCOM363
                   </span>
                 </TooltipTrigger>
@@ -76,7 +76,7 @@ function Navbar() {
         </div>
         <div className="flex items-center justify-end gap-2 font-semibold">
           {/* desktop navigation */}
-          <div className="hidden md:flex lg:flex items-center gap-2">
+          <div className="hidden items-center gap-2 md:flex lg:flex">
             {routes.map((route) => (
               <Link
                 href={route.path}
@@ -99,7 +99,7 @@ function Navbar() {
             <BlurFade delay={BLUR_FADE_DELAY}>
               <DialogContent className="w-[95vw]">
                 <DialogTitle></DialogTitle>
-                <div className="flex flex-col items-start gap-4 text-2xl font-semibold divide-y">
+                <div className="flex flex-col items-start gap-4 divide-y text-2xl font-semibold">
                   {routes.map((route, index: number) => (
                     <BlurFade
                       key={route.name}

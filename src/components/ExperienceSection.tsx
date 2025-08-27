@@ -13,7 +13,7 @@ const BLUR_FADE_DELAY = 0.04;
 
 function ExperienceSection() {
   return (
-    <div className="w-full flex flex-col py-4 lg:py-4">
+    <div className="flex w-full flex-col py-4 lg:py-4">
       <BlurFade delay={BLUR_FADE_DELAY * 3}>
         <h3 className="text-xl font-bold">Work Experience</h3>
       </BlurFade>
@@ -36,11 +36,11 @@ function ExperienceSection() {
                     {experience.description}
                   </BlurFade>
                   <BlurFade delay={BLUR_FADE_DELAY * 3}>
-                    <div className="w-full flex flex-wrap items-center text-[12px] gap-2 py-2">
+                    <div className="flex w-full flex-wrap items-center gap-2 py-2 text-[12px]">
                       {experience.technologies.map((technology) => (
                         <span
                           key={technology}
-                          className="bg-accent px-2 py-1 rounded-md text-[12px]"
+                          className="bg-accent rounded-md px-2 py-1 text-[12px]"
                         >
                           {technology}
                         </span>

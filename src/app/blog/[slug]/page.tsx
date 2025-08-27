@@ -74,7 +74,7 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
           <Link
             href={"/blog"}
-            className="flex items-center gap-1 py-2 text-gray-600 hover:text-primary transition-colors"
+            className="hover:text-primary flex items-center gap-1 py-2 text-gray-600 transition-colors"
           >
             <MoveLeft />
             Back to blog
@@ -82,11 +82,11 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
         </BlurFade>
         {/* title */}
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h1 className="text-4xl font-bold mb-2">{blog.title}</h1>
+          <h1 className="mb-2 text-4xl font-bold">{blog.title}</h1>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
           {/* date & views */}
-          <div className="flex flex-col sm:flex-row justify-between">
+          <div className="flex flex-col justify-between sm:flex-row">
             <p className="text-gray-600">By Rahul Lankeppanavar</p>
             <div className="flex items-center gap-2 text-gray-600">
               {/* date */}
@@ -107,12 +107,12 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
         </BlurFade>
         {/* tags */}
         <BlurFade delay={BLUR_FADE_DELAY * 5}>
-          <div className="w-full pt-4 border-b pb-4">
+          <div className="w-full border-b pt-4 pb-4">
             <div className="flex flex-wrap gap-2">
               {blog.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="bg-accent px-3 py-1 rounded-full text-sm"
+                  className="bg-accent rounded-full px-3 py-1 text-sm"
                 >
                   {tag}
                 </span>
@@ -123,7 +123,7 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
       </div>
       {/* blog content */}
       <BlurFade delay={BLUR_FADE_DELAY * 6}>
-        <div className="w-full prose dark:prose-invert py-8">
+        <div className="prose dark:prose-invert w-full py-8">
           <MDXRemote source={blog.content} options={options} />
         </div>
       </BlurFade>

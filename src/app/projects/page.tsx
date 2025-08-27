@@ -28,12 +28,12 @@ function Projects() {
       <BlurFade delay={BLUR_FADE_DELAY * 2}>
         <h1 className="text-lg font-bold">Stuff that I&apos;ve worked on</h1>
       </BlurFade>
-      <div className="grid grid-cols-1 items-center gap-4 lg:p-4 mt-4">
+      <div className="mt-4 grid grid-cols-1 items-center gap-4 lg:p-4">
         {projects.map((project) => (
           <BlurFade delay={BLUR_FADE_DELAY * 3} key={project.name} inView>
-            <div className="w-full flex flex-col items-center mx-auto border-2 rounded-lg">
+            <div className="mx-auto flex w-full flex-col items-center rounded-lg border-2">
               {/* image */}
-              <Link href={project.source} className="overflow-hidden pt-4 px-4">
+              <Link href={project.source} className="overflow-hidden px-4 pt-4">
                 <BlurFade delay={BLUR_FADE_DELAY * 3 + 0.05}>
                   <Image
                     src={project.image}
@@ -57,11 +57,11 @@ function Projects() {
                 </BlurFade>
                 {/* technologies */}
                 <BlurFade delay={BLUR_FADE_DELAY * 3 + 0.07}>
-                  <div className="w-full flex flex-wrap items-center gap-2">
+                  <div className="flex w-full flex-wrap items-center gap-2">
                     {project.technologies.map((technology) => (
                       <span
                         key={technology}
-                        className="bg-accent px-2 py-1 rounded-md text-[12px]"
+                        className="bg-accent rounded-md px-2 py-1 text-[12px]"
                       >
                         {technology}
                       </span>
