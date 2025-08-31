@@ -68,9 +68,9 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
   }
 
   return (
-    <div className="py-5 lg:py-4">
+    <section className="py-5 lg:py-4">
       <div className="flex flex-col">
-        {/* back link */}
+        {/* ────── Back link ────── */}
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
           <Link
             href={"/blog"}
@@ -80,16 +80,16 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
             Back to blog
           </Link>
         </BlurFade>
-        {/* title */}
+        {/* ────── Title ────── */}
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
           <h1 className="mb-2 text-4xl font-bold">{blog.title}</h1>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          {/* date & views */}
+          {/* ────── Date & views ────── */}
           <div className="flex flex-col justify-between sm:flex-row">
             <p className="text-gray-600">By Rahul Lankeppanavar</p>
             <div className="flex items-center gap-2 text-gray-600">
-              {/* date */}
+              {/* ────── Date ────── */}
               <span className="flex items-center gap-1">
                 <Calendar size={15} />
                 {new Date(blog.date).toLocaleDateString("en-US", {
@@ -98,36 +98,36 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
                   year: "numeric",
                 })}
               </span>
-              {/* views */}
+              {/* ────── Views ────── */}
               <ViewCounter slug={blog.slug} />
-              {/* Share */}
+              {/* ────── Share ────── */}
               <ShareButton />
             </div>
           </div>
         </BlurFade>
-        {/* tags */}
+        {/* ────── Tags ────── */}
         <BlurFade delay={BLUR_FADE_DELAY * 5}>
           <div className="w-full border-b pt-4 pb-4">
-            <div className="flex flex-wrap gap-2">
+            <ul className="flex list-none flex-wrap gap-2">
               {blog.tags.map((tag) => (
-                <span
+                <li
                   key={tag}
                   className="bg-accent rounded-full px-3 py-1 text-sm"
                 >
                   {tag}
-                </span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </BlurFade>
       </div>
-      {/* blog content */}
+      {/* ────── Blog content ────── */}
       <BlurFade delay={BLUR_FADE_DELAY * 6}>
-        <div className="prose dark:prose-invert w-full py-8">
+        <article className="prose dark:prose-invert w-full py-8">
           <MDXRemote source={blog.content} options={options} />
-        </div>
+        </article>
       </BlurFade>
-    </div>
+    </section>
   );
 }
 
