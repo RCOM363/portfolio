@@ -7,6 +7,8 @@ import { getBlogs } from "@/lib/blog";
 import { Calendar } from "lucide-react";
 import ViewCounter from "@/components/ViewCounter";
 
+import { BLUR_FADE_DELAY } from "@/constants";
+
 export const metadata: Metadata = {
   title: "My Blog - All blogs",
   description: "Read my thoughts on web development, technology, and more.",
@@ -16,8 +18,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
-
-const BLUR_FADE_DELAY = 0.04;
 
 async function Blogs() {
   // get blogs

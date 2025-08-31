@@ -1,6 +1,6 @@
-import mysttxt from "../../public/projects/myst-txt.webp";
-import feedforward from "../../public/projects/feed-forward.webp";
-import cashlog from "../../public/projects/cash-log.webp";
+import mysttxt from "@/assets/projects/myst-txt.webp";
+import feedforward from "@/assets/projects/feed-forward.webp";
+import cashlog from "@/assets/projects/cash-log.webp";
 
 export const projects = [
   {

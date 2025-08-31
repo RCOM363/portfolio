@@ -3,17 +3,23 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { BlurFade } from "./magicui/blur-fade";
-import avatarImage from "../../public/avatarImage.webp";
 import { FileTextIcon } from "./ui/file-text";
 import { GithubIcon } from "./ui/github";
 import { LinkedinIcon } from "./ui/linkedin";
 import { AtSignIcon } from "./ui/at-sign";
 
-const BLUR_FADE_DELAY = 0.04;
+import avatarImage from "@/assets/avatarImage.webp";
+import {
+  BLUR_FADE_DELAY,
+  RESUME_URL,
+  GITHUB_URL,
+  LINKEDIN_URL,
+  EMAIL_ID,
+} from "@/constants";
 
 function HeroSection() {
   return (
-    <div className="flex w-full flex-wrap items-center gap-4 py-5 lg:py-4">
+    <header className="flex w-full flex-wrap items-center gap-4 py-5 lg:py-4">
       <BlurFade
         delay={BLUR_FADE_DELAY * 2}
         className="w-[60%] lg:w-[25%]"
@@ -35,7 +41,7 @@ function HeroSection() {
           </h1>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 3} className="w-full">
-          <div className="w-full leading-7.5 font-semibold lg:text-sm lg:leading-6.5">
+          <p className="w-full leading-7.5 font-semibold lg:text-sm lg:leading-6.5">
             <span className="py-0.1 bg-accent hover:bg-accent/80 cursor-pointer rounded-lg border-2 px-2.5 transition-colors">
               Fullstack
             </span>{" "}
@@ -52,40 +58,38 @@ function HeroSection() {
               DevOps
             </span>{" "}
             practices to improve how things ship and scale.
-          </div>
+          </p>
         </BlurFade>
         {/* links */}
         <BlurFade delay={BLUR_FADE_DELAY * 5} className="w-full">
-          <div className="flex w-full items-center justify-start gap-4 lg:w-auto">
-            <Link
-              href={
-                "https://drive.google.com/file/d/1PiAQR8W2cWbbFOiTAR478JHsM1Q_4RhD/view?usp=sharing"
-              }
-              target="_blank"
-            >
+          <nav
+            className="flex w-full items-center justify-start gap-4 lg:w-auto"
+            aria-label="Social and contact links"
+          >
+            <Link href={RESUME_URL} target="_blank" aria-label="View resume">
               <FileTextIcon size={25} />
             </Link>
-            <Link href={"https://www.github.com/RCOM363"} target="_blank">
+            <Link href={GITHUB_URL} target="_blank" aria-label="Github profile">
               <GithubIcon size={25} />
             </Link>
             <Link
-              href={
-                "https://www.linkedin.com/in/rahul-lankeppanavar-bb3260264/"
-              }
+              href={LINKEDIN_URL}
               target="_blank"
+              aria-label="LinkedIn profile"
             >
               <LinkedinIcon size={25} />
             </Link>
             <Link
-              href={"mailto:rahullankeppanavar363@gmail.com"}
+              href={`mailto:${EMAIL_ID}`}
               target="_blank"
+              aria-label="Send email"
             >
               <AtSignIcon size={25} />
             </Link>
-          </div>
+          </nav>
         </BlurFade>
       </div>
-    </div>
+    </header>
   );
 }
 

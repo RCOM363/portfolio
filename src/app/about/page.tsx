@@ -1,8 +1,15 @@
 import React from "react";
 import { Metadata } from "next";
+import Image from "next/image";
 
 import { BlurFade } from "@/components/magicui/blur-fade";
-import DogCard from "@/components/DogCard";
+import Popper from "@/components/Popper";
+
+import richieImg1 from "@/assets/richie/richieImg1.webp";
+import richieImg2 from "@/assets/richie/richieImg2.webp";
+import richieImg3 from "@/assets/richie/richieImg3.webp";
+import richieImg4 from "@/assets/richie/richieImg4.webp";
+import { BLUR_FADE_DELAY } from "@/constants";
 
 export const metadata: Metadata = {
   title: "About Me - Rahul Lankeppanavar",
@@ -14,7 +21,22 @@ export const metadata: Metadata = {
   },
 };
 
-const BLUR_FADE_DELAY = 0.04;
+const images = [richieImg1, richieImg2, richieImg3, richieImg4];
+const popperContent = (
+  <div className="flex items-center justify-center -space-x-3">
+    {images.map((img, index) => (
+      <Image
+        key={index}
+        src={img}
+        alt={`richie img ${index}`}
+        width={70}
+        quality={100}
+        placeholder="blur"
+        className="rounded-full border-2 border-white transition-all duration-300 hover:scale-110 dark:border-gray-800"
+      />
+    ))}
+  </div>
+);
 
 function About() {
   return (
@@ -37,7 +59,15 @@ function About() {
           Outside of tech, you&apos;ll usually find me geeking out over the
           latest movies/series, gaming for fun and chilling with my{" "}
           {/* richie photo */}
-          <DogCard /> — the real MVP.
+          <Popper
+            trigger={
+              <span className="font-bold italic underline decoration-dotted underline-offset-4 transition">
+                Dog🐾
+              </span>
+            }
+            content={popperContent}
+          />{" "}
+          — the real MVP.
         </p>
       </BlurFade>
       <BlurFade delay={BLUR_FADE_DELAY * 5} className="py-2">

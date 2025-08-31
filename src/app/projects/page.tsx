@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { GithubIcon } from "@/components/ui/github";
 import { LinkIcon } from "@/components/ui/link";
 
-const BLUR_FADE_DELAY = 0.04;
+import { BLUR_FADE_DELAY } from "@/constants";
 
 export const metadata: Metadata = {
   title: "Projects",

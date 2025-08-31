@@ -1,9 +1,9 @@
 import React from "react";
 
 import { BlurFade } from "./magicui/blur-fade";
-import { technologies } from "@/data/technologies";
 
-const BLUR_FADE_DELAY = 0.04;
+import { technologies } from "@/data/technologies";
+import { BLUR_FADE_DELAY } from "@/constants";
 
 function TechnologiesSection() {
   return (

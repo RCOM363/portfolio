@@ -20,10 +20,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-
 import ThemeToggle from "../ThemeToggle";
-
-const BLUR_FADE_DELAY = 0.04;
+import { BLUR_FADE_DELAY, ROUTES } from "@/constants";
 
 const routes = [
   {
@@ -75,9 +73,9 @@ function Navbar() {
           </Link>
         </div>
         <div className="flex items-center justify-end gap-2 font-semibold">
-          {/* desktop navigation */}
+          {/* ────── Desktop navigation ────── */}
           <div className="hidden items-center gap-2 md:flex lg:flex">
-            {routes.map((route) => (
+            {ROUTES.map((route) => (
               <Link
                 href={route.path}
                 className={`${
@@ -91,7 +89,7 @@ function Navbar() {
               </Link>
             ))}
           </div>
-          {/* mobile navigation */}
+          {/* ────── Mobile navigation ────── */}
           <Dialog>
             <DialogTrigger className="md:hidden lg:hidden">
               <CgMenuRightAlt size={25} />
@@ -125,8 +123,7 @@ function Navbar() {
               </DialogContent>
             </BlurFade>
           </Dialog>
-
-          {/* theme toggle */}
+          {/* ────── Theme toggle ────── */}
           <ThemeToggle />
         </div>
       </nav>

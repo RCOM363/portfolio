@@ -11,6 +11,8 @@ import { getBlogs, getBlog } from "@/lib/blog";
 import ViewCounter from "@/components/ViewCounter";
 import { ShareButton } from "@/components/ShareButton";
 
+import { BLUR_FADE_DELAY } from "@/constants";
+
 // generate metadate for each blog
 export async function generateMetadata({
   params,
@@ -57,8 +59,6 @@ const options = {
     rehypePlugins: [rehypePrettyCode], // syntax higlighting
   },
 };
-
-const BLUR_FADE_DELAY = 0.04;
 
 async function Blog({ params }: { params: Promise<{ slug: string }> }) {
   const blog = await getBlog((await params).slug);

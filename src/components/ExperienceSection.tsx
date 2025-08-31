@@ -7,9 +7,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { experiences } from "@/data/experiences";
 
-const BLUR_FADE_DELAY = 0.04;
+import { experiences } from "@/data/experiences";
+import { BLUR_FADE_DELAY } from "@/constants";
 
 function ExperienceSection() {
   return (
