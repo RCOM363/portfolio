@@ -43,21 +43,21 @@ function HeroSection() {
         <BlurFade delay={BLUR_FADE_DELAY * 3} className="w-full">
           <p className="w-full leading-7.5 font-semibold lg:text-sm lg:leading-6.5">
             <span className="py-0.1 bg-accent hover:bg-accent/80 cursor-pointer rounded-lg border-2 px-2.5 transition-colors">
-              Fullstack
+              Software Developer
             </span>{" "}
-            Developer from{" "}
+            from{" "}
             <span className="bg-accent hover:bg-accent/80 cursor-pointer rounded-lg border-2 px-2.5 whitespace-nowrap transition-colors">
               📍Karnataka, India
             </span>{" "}
-            with a focus on the{" "}
+            specializing in{" "}
             <span className="bg-accent hover:bg-accent/80 cursor-pointer rounded-lg border-2 px-2.5 transition-colors">
               MERN
             </span>{" "}
-            stack. I build full-cycle web apps and explore{" "}
+            stack and building{" "}
             <span className="bg-accent hover:bg-accent/80 cursor-pointer rounded-lg border-2 px-2.5 transition-colors">
-              DevOps
+              end-to-end
             </span>{" "}
-            practices to improve how things ship and scale.
+            applications with modern, robust systems.
           </p>
         </BlurFade>
         {/* links */}

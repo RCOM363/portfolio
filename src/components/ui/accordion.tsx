@@ -3,6 +3,7 @@
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ChevronDownIcon } from "lucide-react";
+import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
@@ -29,6 +30,7 @@ function AccordionItem({
 interface AccordionTriggerProps
   extends React.ComponentProps<typeof AccordionPrimitive.Trigger> {
   company: string;
+  companyWebsite: string;
   title: string;
   duration: string;
 }
@@ -36,6 +38,7 @@ interface AccordionTriggerProps
 function AccordionTrigger({
   className,
   company,
+  companyWebsite,
   title,
   duration,
   ...props
@@ -60,7 +63,11 @@ function AccordionTrigger({
               {duration}
             </span>
           </div>
-          <p className="text-muted-foreground text-sm">{company}</p>
+          <Link href={companyWebsite} target="_blank">
+            <span className="text-muted-foreground text-sm hover:underline">
+              {company}
+            </span>
+          </Link>
         </div>
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>

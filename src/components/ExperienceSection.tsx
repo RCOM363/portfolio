@@ -29,6 +29,7 @@ function ExperienceSection() {
                 <AccordionItem value={experience.company}>
                   <AccordionTrigger
                     company={experience.company}
+                    companyWebsite={experience.company_website}
                     title={experience.title}
                     duration={experience.duration}
                   ></AccordionTrigger>
