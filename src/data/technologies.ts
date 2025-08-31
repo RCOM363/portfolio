@@ -32,7 +32,7 @@ export const technologies = {
   Tailwind: SiTailwindcss,
   Reactjs: FaReact,
   Redux: SiRedux,
-  ReactQuery: SiReactquery,
+  "Tanstack Query": SiReactquery,
   Nextjs: RiNextjsFill,
   Nodejs: FaNodeJs,
   Expressjs: SiExpress,

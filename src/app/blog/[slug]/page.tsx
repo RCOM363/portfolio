@@ -11,6 +11,8 @@ import { getBlogs, getBlog } from "@/lib/blog";
 import ViewCounter from "@/components/ViewCounter";
 import { ShareButton } from "@/components/ShareButton";
 
+import { BLUR_FADE_DELAY } from "@/constants";
+
 // generate metadate for each blog
 export async function generateMetadata({
   params,
@@ -58,8 +60,6 @@ const options = {
   },
 };
 
-const BLUR_FADE_DELAY = 0.04;
-
 async function Blog({ params }: { params: Promise<{ slug: string }> }) {
   const blog = await getBlog((await params).slug);
 
@@ -68,28 +68,28 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
   }
 
   return (
-    <div className="w-full px-4 py-5 lg:py-4">
+    <section className="py-5 lg:py-4">
       <div className="flex flex-col">
-        {/* back link */}
+        {/* ────── Back link ────── */}
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
           <Link
             href={"/blog"}
-            className="flex items-center gap-1 py-2 text-gray-600 hover:text-primary transition-colors"
+            className="hover:text-primary flex items-center gap-1 py-2 text-gray-600 transition-colors"
           >
             <MoveLeft />
             Back to blog
           </Link>
         </BlurFade>
-        {/* title */}
+        {/* ────── Title ────── */}
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h1 className="text-4xl font-bold mb-2">{blog.title}</h1>
+          <h1 className="mb-2 text-4xl font-bold">{blog.title}</h1>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          {/* date & views */}
-          <div className="flex flex-col sm:flex-row justify-between">
+          {/* ────── Date & views ────── */}
+          <div className="flex flex-col justify-between sm:flex-row">
             <p className="text-gray-600">By Rahul Lankeppanavar</p>
             <div className="flex items-center gap-2 text-gray-600">
-              {/* date */}
+              {/* ────── Date ────── */}
               <span className="flex items-center gap-1">
                 <Calendar size={15} />
                 {new Date(blog.date).toLocaleDateString("en-US", {
@@ -98,36 +98,36 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
                   year: "numeric",
                 })}
               </span>
-              {/* views */}
+              {/* ────── Views ────── */}
               <ViewCounter slug={blog.slug} />
-              {/* Share */}
+              {/* ────── Share ────── */}
               <ShareButton />
             </div>
           </div>
         </BlurFade>
-        {/* tags */}
+        {/* ────── Tags ────── */}
         <BlurFade delay={BLUR_FADE_DELAY * 5}>
-          <div className="w-full pt-4 border-b pb-4">
-            <div className="flex flex-wrap gap-2">
+          <div className="w-full border-b pt-4 pb-4">
+            <ul className="flex list-none flex-wrap gap-2">
               {blog.tags.map((tag) => (
-                <span
+                <li
                   key={tag}
-                  className="bg-accent px-3 py-1 rounded-full text-sm"
+                  className="bg-accent rounded-full px-3 py-1 text-sm"
                 >
                   {tag}
-                </span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </BlurFade>
       </div>
-      {/* blog content */}
+      {/* ────── Blog content ────── */}
       <BlurFade delay={BLUR_FADE_DELAY * 6}>
-        <div className="w-full prose dark:prose-invert py-8">
+        <article className="prose dark:prose-invert w-full py-8">
           <MDXRemote source={blog.content} options={options} />
-        </div>
+        </article>
       </BlurFade>
-    </div>
+    </section>
   );
 }
 

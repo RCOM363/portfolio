@@ -51,6 +51,16 @@ body {
   box-sizing: border-box;
 }
 
+/* ────── Remove scrollbar ────── */
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);

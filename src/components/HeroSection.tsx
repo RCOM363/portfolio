@@ -3,17 +3,23 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { BlurFade } from "./magicui/blur-fade";
-import avatarImage from "../../public/avatarImage.webp";
 import { FileTextIcon } from "./ui/file-text";
 import { GithubIcon } from "./ui/github";
 import { LinkedinIcon } from "./ui/linkedin";
 import { AtSignIcon } from "./ui/at-sign";
 
-const BLUR_FADE_DELAY = 0.04;
+import avatarImage from "@/assets/avatarImage.webp";
+import {
+  BLUR_FADE_DELAY,
+  RESUME_URL,
+  GITHUB_URL,
+  LINKEDIN_URL,
+  EMAIL_ID,
+} from "@/constants";
 
 function HeroSection() {
   return (
-    <div className="w-full flex flex-wrap items-center gap-4 py-5 lg:py-4">
+    <section className="flex w-full flex-wrap items-center gap-4 py-5 lg:py-4">
       <BlurFade
         delay={BLUR_FADE_DELAY * 2}
         className="w-[60%] lg:w-[25%]"
@@ -28,64 +34,82 @@ function HeroSection() {
           className="w-full rounded-lg lg:rounded-full"
         />
       </BlurFade>
-      <div className="w-full lg:w-[70%] flex flex-col gap-2 ">
+      <div className="flex w-full flex-col gap-2 lg:w-[70%]">
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
           <h1 className="text-3xl font-bold">
             Hi, I&apos;m Rahul Lankeppanavar
           </h1>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 3} className="w-full">
-          <div className="w-full lg:text-sm font-semibold leading-7.5 lg:leading-6.5">
-            <span className="px-2.5 py-0.1 bg-accent hover:bg-accent/80 transition-colors border-2 rounded-lg cursor-pointer">
-              Fullstack
+          <p className="w-full leading-7.5 font-semibold lg:text-sm lg:leading-6.5">
+            <span className="py-0.1 bg-accent hover:bg-accent/80 cursor-pointer rounded-lg border-2 px-2.5 transition-colors">
+              Software Developer
             </span>{" "}
-            Developer from{" "}
-            <span className="whitespace-nowrap px-2.5 bg-accent hover:bg-accent/80 transition-colors border-2 rounded-lg cursor-pointer">
+            from{" "}
+            <span className="bg-accent hover:bg-accent/80 cursor-pointer rounded-lg border-2 px-2.5 whitespace-nowrap transition-colors">
               📍Karnataka, India
             </span>{" "}
-            with a focus on the{" "}
-            <span className="px-2.5 bg-accent hover:bg-accent/80 transition-colors border-2 rounded-lg cursor-pointer">
+            specializing in{" "}
+            <span className="bg-accent hover:bg-accent/80 cursor-pointer rounded-lg border-2 px-2.5 transition-colors">
               MERN
             </span>{" "}
-            stack. I build full-cycle web apps and explore{" "}
-            <span className="px-2.5  bg-accent hover:bg-accent/80 transition-colors border-2 rounded-lg cursor-pointer">
-              DevOps
+            stack and building{" "}
+            <span className="bg-accent hover:bg-accent/80 cursor-pointer rounded-lg border-2 px-2.5 transition-colors">
+              end-to-end
             </span>{" "}
-            practices to improve how things ship and scale.
-          </div>
+            applications with modern, robust systems.
+          </p>
         </BlurFade>
         {/* links */}
         <BlurFade delay={BLUR_FADE_DELAY * 5} className="w-full">
-          <div className="w-full lg:w-auto flex items-center justify-start gap-4">
-            <Link
-              href={
-                "https://drive.google.com/file/d/1PiAQR8W2cWbbFOiTAR478JHsM1Q_4RhD/view?usp=sharing"
-              }
-              target="_blank"
-            >
-              <FileTextIcon size={25} />
-            </Link>
-            <Link href={"https://www.github.com/RCOM363"} target="_blank">
-              <GithubIcon size={25} />
-            </Link>
-            <Link
-              href={
-                "https://www.linkedin.com/in/rahul-lankeppanavar-bb3260264/"
-              }
-              target="_blank"
-            >
-              <LinkedinIcon size={25} />
-            </Link>
-            <Link
-              href={"mailto:rahullankeppanavar363@gmail.com"}
-              target="_blank"
-            >
-              <AtSignIcon size={25} />
-            </Link>
-          </div>
+          <nav
+            className="flex w-full items-center justify-start lg:w-auto"
+            aria-label="Social and contact links"
+          >
+            <ul className="flex list-none items-center gap-4">
+              <li>
+                <Link
+                  href={RESUME_URL}
+                  target="_blank"
+                  aria-label="View resume"
+                >
+                  <FileTextIcon size={25} />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={GITHUB_URL}
+                  target="_blank"
+                  aria-label="Github profile"
+                >
+                  <GithubIcon size={25} />
+                </Link>
+              </li>
+              <li>
+                {" "}
+                <Link
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  aria-label="LinkedIn profile"
+                >
+                  <LinkedinIcon size={25} />
+                </Link>
+              </li>
+              <li>
+                {" "}
+                <Link
+                  href={`mailto:${EMAIL_ID}`}
+                  target="_blank"
+                  aria-label="Send email"
+                >
+                  <AtSignIcon size={25} />
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </BlurFade>
       </div>
-    </div>
+    </section>
   );
 }
 

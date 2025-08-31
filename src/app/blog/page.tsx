@@ -7,6 +7,8 @@ import { getBlogs } from "@/lib/blog";
 import { Calendar } from "lucide-react";
 import ViewCounter from "@/components/ViewCounter";
 
+import { BLUR_FADE_DELAY } from "@/constants";
+
 export const metadata: Metadata = {
   title: "My Blog - All blogs",
   description: "Read my thoughts on web development, technology, and more.",
@@ -17,63 +19,66 @@ export const metadata: Metadata = {
   },
 };
 
-const BLUR_FADE_DELAY = 0.04;
-
 async function Blogs() {
-  // get blogs
+  /* ────── get blogs ────── */
   const blogs = await getBlogs();
   return (
-    <div className="w-full px-4 py-5 lg:py-4">
+    <section className="py-5 lg:py-4">
       <BlurFade delay={BLUR_FADE_DELAY * 2}>
         <h1 className="text-lg font-bold">
           I write about technologies & my learning
         </h1>
       </BlurFade>
-      {/* blogs list */}
-      <div className="flex flex-col gap-2 lg:py-4 mt-4">
+      {/* ────── Blogs list ────── */}
+      <ul className="mt-4 flex list-none flex-col gap-2 lg:py-4">
         {blogs.map((blog, index: number) => (
           <BlurFade
             delay={BLUR_FADE_DELAY * 3 + 0.05 * index}
             key={blog.slug}
             inView
           >
-            <Link href={`/blog/${blog.slug}`}>
-              <div className="flex flex-col gap-1 hover:bg-accent/60 p-4 border-2 rounded-lg">
-                <div className="w-full flex flex-wrap items-start justify-between">
-                  <div className="md:max-w-[75%]">
-                    <h2 className="text-xl font-bold">{blog.title}</h2>
-                    <p>{blog.description}</p>
+            <li>
+              <Link
+                href={`/blog/${blog.slug}`}
+                aria-labelledby={`blog-title-${blog.slug}`}
+              >
+                <article className="hover:bg-accent/60 flex flex-col gap-1 rounded-lg border-2 p-4">
+                  <div className="flex w-full flex-wrap items-start justify-between">
+                    <div className="md:max-w-[75%]">
+                      <h2 className="text-xl font-bold">{blog.title}</h2>
+                      <p>{blog.description}</p>
+                    </div>
+                    {/* ────── Date & views ────── */}
+                    <div className="flex w-full items-center gap-2 lg:w-auto lg:flex-col lg:items-end lg:gap-0">
+                      <span className="flex items-center gap-1">
+                        <Calendar size={15} />
+                        {new Date(blog.date).toLocaleDateString("en-US", {
+                          month: "long",
+                          day: "numeric",
+                          year: "numeric",
+                        })}
+                      </span>
+                      <ViewCounter slug={blog.slug} trackView={false} />
+                    </div>
                   </div>
-                  {/* date & views */}
-                  <div className="w-full flex items-center lg:items-end gap-2 lg:gap-0 lg:w-auto lg:flex-col">
-                    <span className="flex items-center gap-1">
-                      <Calendar size={15} />
-                      {new Date(blog.date).toLocaleDateString("en-US", {
-                        month: "long",
-                        day: "numeric",
-                        year: "numeric",
-                      })}
-                    </span>
-                    <ViewCounter slug={blog.slug} trackView={false} />
-                  </div>
-                </div>
-                {/* tags */}
-                <div className="flex flex-wrap gap-2">
-                  {blog.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="bg-accent px-2 py-1 rounded-md text-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </Link>
+                  {/* ────── Tags ────── */}
+                  <ul className="flex list-none flex-wrap gap-2">
+                    {blog.tags.map((tag) => (
+                      <li
+                        key={tag}
+                        className="bg-accent rounded-md px-2 py-1 text-sm"
+                      >
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </Link>
+            </li>
           </BlurFade>
         ))}
-      </div>
-    </div>
+      </ul>
+    </section>
   );
 }
 

@@ -12,7 +12,7 @@ export function ShareButton() {
     try {
       await navigator.clipboard.writeText(url);
       toast("Link copied to clipboard", {
-        position:"top-right"
+        position: "top-right",
       });
     } catch (err) {
       console.error("Failed to copy:", err);
@@ -22,7 +22,7 @@ export function ShareButton() {
   return (
     <button
       onClick={onClick}
-      className="flex items-center gap-1 text-gray-600 hover:text-primary transition-colors"
+      className="hover:text-primary flex items-center gap-1 text-gray-600 transition-colors"
     >
       <Share2 size={15} />
       Share

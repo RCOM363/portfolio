@@ -18,17 +18,16 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Rahul Lankeppanavar",
-  description:
-    "Fullstack developer building modern web applications with MERN stack and beyond.",
+  description: "Software developer building modern applications.",
   openGraph: {
     title: "Rahul Lankeppanavar",
-    description:
-      "Fullstack developer building modern web applications with MERN stack and beyond.",
+    description: "Software developer building modern applications.",
     type: "website",
   },
   icons: {
     icon: [{ url: "./favicon.ico" }],
   },
+  authors: [{ name: "Rahul Lankeppanavar" }],
 };
 
 export default function RootLayout({
@@ -47,9 +46,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="max-w-2xl mx-auto font-sans">
-            <Navbar />
-            {children}
+          <div className="mx-auto max-w-2xl font-sans">
+            <header>
+              <Navbar />
+            </header>
+            <main className="w-full px-4">{children}</main>
           </div>
           <Toaster />
         </ThemeProvider>
