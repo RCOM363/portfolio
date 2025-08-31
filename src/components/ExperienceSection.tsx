@@ -37,7 +37,7 @@ function ExperienceSection() {
                       <p>{experience.description}</p>
                     </BlurFade>
                     <BlurFade delay={BLUR_FADE_DELAY * 3}>
-                      <ul className="flex w-full flex-wrap items-center gap-2 py-2 text-[12px]">
+                      <ul className="flex w-full list-none flex-wrap items-center gap-2 py-2 text-[12px]">
                         {experience.technologies.map((technology) => (
                           <li
                             key={technology}

@@ -23,26 +23,6 @@ import {
 import ThemeToggle from "../ThemeToggle";
 import { BLUR_FADE_DELAY, ROUTES } from "@/constants";
 
-const routes = [
-  {
-    name: "Home",
-    path: "/",
-  },
-
-  {
-    name: "Projects",
-    path: "/projects",
-  },
-  {
-    name: "Blog",
-    path: "/blog",
-  },
-  {
-    name: "About",
-    path: "/about",
-  },
-];
-
 function Navbar() {
   const pathname = usePathname();
   const isActive = (routePath: string) => {
@@ -54,9 +34,12 @@ function Navbar() {
       delay={BLUR_FADE_DELAY}
       className="sticky top-0 z-10 bg-[#ffffff] dark:bg-[#0a0a0a]"
     >
-      <nav className="flex items-center justify-between px-4 py-3 lg:py-6">
-        {/* logo */}
-        <div>
+      <nav
+        className="flex items-center justify-between px-4 py-3 lg:py-6"
+        aria-label="Primary navigation"
+      >
+        {/* ────── Logo ────── */}
+        <>
           <Link href={"/"}>
             <TooltipProvider>
               <Tooltip>
@@ -71,24 +54,29 @@ function Navbar() {
               </Tooltip>
             </TooltipProvider>
           </Link>
-        </div>
+        </>
         <div className="flex items-center justify-end gap-2 font-semibold">
           {/* ────── Desktop navigation ────── */}
-          <div className="hidden items-center gap-2 md:flex lg:flex">
-            {ROUTES.map((route) => (
-              <Link
-                href={route.path}
-                className={`${
-                  isActive(route.path)
-                    ? "text-black dark:text-white"
-                    : "text-black/60 dark:text-white/60"
-                } transition-colors`}
-                key={route.name}
-              >
-                {route.name}
-              </Link>
-            ))}
-          </div>
+          <ul className="hidden list-none items-center gap-2 md:flex lg:flex">
+            {ROUTES.map((route) => {
+              const active = isActive(route.path);
+              return (
+                <li key={route.name}>
+                  <Link
+                    href={route.path}
+                    className={`${
+                      active
+                        ? "text-black dark:text-white"
+                        : "text-black/60 dark:text-white/60"
+                    } transition-colors`}
+                    aria-current={active ? "page" : undefined}
+                  >
+                    {route.name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
           {/* ────── Mobile navigation ────── */}
           <Dialog>
             <DialogTrigger className="md:hidden lg:hidden">
@@ -97,29 +85,36 @@ function Navbar() {
             <BlurFade delay={BLUR_FADE_DELAY}>
               <DialogContent className="w-[95vw]">
                 <DialogTitle></DialogTitle>
-                <div className="flex flex-col items-start gap-4 divide-y text-2xl font-semibold">
-                  {routes.map((route, index: number) => (
-                    <BlurFade
-                      key={route.name}
-                      delay={BLUR_FADE_DELAY * 2 + index * 0.05}
-                      className="w-full"
-                    >
-                      <DialogClose className="w-full p-2" asChild>
-                        <Link
-                          href={route.path}
-                          className={`${
-                            pathname === route.path
-                              ? "text-black dark:text-white"
-                              : "text-black/60 dark:text-white/60"
-                          } transition-colors`}
-                          key={route.name}
-                        >
-                          {route.name}
-                        </Link>
-                      </DialogClose>
-                    </BlurFade>
-                  ))}
-                </div>
+                <nav
+                  className="flex flex-col items-start gap-4 divide-y text-2xl font-semibold"
+                  aria-label="Primary navigation"
+                >
+                  {ROUTES.map((route, index: number) => {
+                    const active = isActive(route.path);
+                    return (
+                      <BlurFade
+                        key={route.name}
+                        delay={BLUR_FADE_DELAY * 2 + index * 0.05}
+                        className="w-full"
+                      >
+                        <DialogClose className="w-full p-2" asChild>
+                          <Link
+                            href={route.path}
+                            className={`${
+                              active
+                                ? "text-black dark:text-white"
+                                : "text-black/60 dark:text-white/60"
+                            } transition-colors`}
+                            key={route.name}
+                            aria-current={active ? "page" : undefined}
+                          >
+                            {route.name}
+                          </Link>
+                        </DialogClose>
+                      </BlurFade>
+                    );
+                  })}
+                </nav>
               </DialogContent>
             </BlurFade>
           </Dialog>
