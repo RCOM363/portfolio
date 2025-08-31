@@ -23,7 +23,7 @@ async function Blogs() {
   // get blogs
   const blogs = await getBlogs();
   return (
-    <div className="w-full px-4 py-5 lg:py-4">
+    <div className="py-5 lg:py-4">
       <BlurFade delay={BLUR_FADE_DELAY * 2}>
         <h1 className="text-lg font-bold">
           I write about technologies & my learning

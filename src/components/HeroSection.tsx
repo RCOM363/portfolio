@@ -19,7 +19,7 @@ import {
 
 function HeroSection() {
   return (
-    <header className="flex w-full flex-wrap items-center gap-4 py-5 lg:py-4">
+    <section className="flex w-full flex-wrap items-center gap-4 py-5 lg:py-4">
       <BlurFade
         delay={BLUR_FADE_DELAY * 2}
         className="w-[60%] lg:w-[25%]"
@@ -63,33 +63,53 @@ function HeroSection() {
         {/* links */}
         <BlurFade delay={BLUR_FADE_DELAY * 5} className="w-full">
           <nav
-            className="flex w-full items-center justify-start gap-4 lg:w-auto"
+            className="flex w-full items-center justify-start lg:w-auto"
             aria-label="Social and contact links"
           >
-            <Link href={RESUME_URL} target="_blank" aria-label="View resume">
-              <FileTextIcon size={25} />
-            </Link>
-            <Link href={GITHUB_URL} target="_blank" aria-label="Github profile">
-              <GithubIcon size={25} />
-            </Link>
-            <Link
-              href={LINKEDIN_URL}
-              target="_blank"
-              aria-label="LinkedIn profile"
-            >
-              <LinkedinIcon size={25} />
-            </Link>
-            <Link
-              href={`mailto:${EMAIL_ID}`}
-              target="_blank"
-              aria-label="Send email"
-            >
-              <AtSignIcon size={25} />
-            </Link>
+            <ul className="flex list-none items-center gap-4">
+              <li>
+                <Link
+                  href={RESUME_URL}
+                  target="_blank"
+                  aria-label="View resume"
+                >
+                  <FileTextIcon size={25} />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={GITHUB_URL}
+                  target="_blank"
+                  aria-label="Github profile"
+                >
+                  <GithubIcon size={25} />
+                </Link>
+              </li>
+              <li>
+                {" "}
+                <Link
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  aria-label="LinkedIn profile"
+                >
+                  <LinkedinIcon size={25} />
+                </Link>
+              </li>
+              <li>
+                {" "}
+                <Link
+                  href={`mailto:${EMAIL_ID}`}
+                  target="_blank"
+                  aria-label="Send email"
+                >
+                  <AtSignIcon size={25} />
+                </Link>
+              </li>
+            </ul>
           </nav>
         </BlurFade>
       </div>
-    </header>
+    </section>
   );
 }
 

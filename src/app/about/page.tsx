@@ -40,7 +40,7 @@ const popperContent = (
 
 function About() {
   return (
-    <div className="w-full px-4 py-5 lg:py-4">
+    <div className="py-5 lg:py-4">
       <BlurFade delay={BLUR_FADE_DELAY * 2}>
         <h1 className="pb-2 text-2xl font-semibold">Hello, World👋</h1>
       </BlurFade>

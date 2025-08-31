@@ -47,9 +47,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="max-w-2xl mx-auto font-sans">
-            <Navbar />
-            {children}
+          <div className="mx-auto max-w-2xl font-sans">
+            <header>
+              <Navbar />
+            </header>
+            <main className="w-full px-4">{children}</main>
           </div>
           <Toaster />
         </ThemeProvider>

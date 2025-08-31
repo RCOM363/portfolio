@@ -4,10 +4,10 @@ import TechnologiesSection from "@/components/TechnologiesSection";
 
 export default function Home() {
   return (
-    <div className="w-full px-4">
+    <>
       <HeroSection />
       <ExperienceSection />
       <TechnologiesSection />
-    </div>
+    </>
   );
 }

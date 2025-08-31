@@ -68,7 +68,7 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
   }
 
   return (
-    <div className="w-full px-4 py-5 lg:py-4">
+    <div className="py-5 lg:py-4">
       <div className="flex flex-col">
         {/* back link */}
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
