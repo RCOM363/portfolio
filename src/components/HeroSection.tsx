@@ -46,15 +46,15 @@ function HeroSection() {
               Software Developer
             </span>{" "}
             from{" "}
-            <span className="bg-accent hover:bg-accent/80 cursor-pointer rounded-lg border-2 px-2.5 whitespace-nowrap transition-colors">
+            <span className="bg-accent hover:bg-accent/80 cursor-pointer rounded-lg border-2 px-2.5 text-nowrap transition-colors">
               📍Karnataka, India
             </span>{" "}
             specializing in{" "}
-            <span className="bg-accent hover:bg-accent/80 cursor-pointer rounded-lg border-2 px-2.5 transition-colors">
+            <span className="bg-accent hover:bg-accent/80 cursor-pointer rounded-lg border-2 px-2.5 text-nowrap transition-colors">
               MERN
             </span>{" "}
             stack and building{" "}
-            <span className="bg-accent hover:bg-accent/80 cursor-pointer rounded-lg border-2 px-2.5 transition-colors">
+            <span className="bg-accent hover:bg-accent/80 cursor-pointer rounded-lg border-2 px-2.5 text-nowrap transition-colors">
               end-to-end
             </span>{" "}
             applications with modern, robust systems.

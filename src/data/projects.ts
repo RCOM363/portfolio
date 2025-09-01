@@ -38,7 +38,7 @@ export const projects = [
       "Reactjs",
       "React Router",
       "React Hook Form",
-      "React Query",
+      "TanStack Query",
       "Zod",
       "Nodejs",
       "Expressjs",

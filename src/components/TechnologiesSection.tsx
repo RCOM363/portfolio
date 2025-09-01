@@ -16,7 +16,7 @@ function TechnologiesSection() {
           <BlurFade delay={BLUR_FADE_DELAY * 8} key={name} inView>
             <li className="hover:bg-muted/40 flex flex-col items-center justify-center gap-2 rounded-lg border-1 px-2 py-3 transition-all hover:scale-95">
               <IconComponent size={24} />
-              <span className="text-sm">{name}</span>
+              <span className="line-clamp-1 text-sm text-ellipsis max-w-[98%]">{name}</span>
             </li>
           </BlurFade>
         ))}
