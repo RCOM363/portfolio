@@ -51,7 +51,7 @@ body {
   box-sizing: border-box;
 }
 
-/* ────── Remove scrollbar ────── */
+/* ------ Remove scrollbar ------ */
 
 *::-webkit-scrollbar {
   display: none;

@@ -17,6 +17,7 @@ interface PopperProps {
   content: ReactNode;
 }
 
+/* ------ Helper func to detect mobile device ------ */
 function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobile] = useState(false);
 

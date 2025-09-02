@@ -31,7 +31,7 @@ function Projects() {
         {projects.map((project) => (
           <BlurFade delay={BLUR_FADE_DELAY * 3} key={project.name} inView>
             <li className="mx-auto flex w-full flex-col items-center rounded-lg border-2">
-              {/* ────── Image ────── */}
+              {/* ------ Image ------ */}
               <Link href={project.source} className="overflow-hidden px-4 pt-4">
                 <BlurFade delay={BLUR_FADE_DELAY * 3 + 0.05}>
                   <Image
@@ -45,7 +45,7 @@ function Projects() {
                 </BlurFade>
               </Link>
               <article className="flex flex-col justify-start gap-4 p-4">
-                {/* ────── Title & description ────── */}
+                {/* ------ Title & description ------ */}
                 <BlurFade delay={BLUR_FADE_DELAY * 3 + 0.06}>
                   <div>
                     <h2 className="text-xl font-semibold">{project.name}</h2>
@@ -54,7 +54,7 @@ function Projects() {
                     </p>
                   </div>
                 </BlurFade>
-                {/* ────── Technologies ────── */}
+                {/* ------ Technologies ------ */}
                 <BlurFade delay={BLUR_FADE_DELAY * 3 + 0.07}>
                   <ul className="flex w-full list-none flex-wrap items-center gap-2">
                     {project.technologies.map((technology) => (
@@ -67,7 +67,7 @@ function Projects() {
                     ))}
                   </ul>
                 </BlurFade>
-                {/* ────── Links ────── */}
+                {/* ------ Links ------ */}
                 <BlurFade delay={BLUR_FADE_DELAY * 3 + 0.08}>
                   <div className="flex items-center gap-2">
                     <Link href={project.source} target="_blank">

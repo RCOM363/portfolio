@@ -4,21 +4,24 @@
 import { useEffect, useState } from "react";
 import { Eye } from "lucide-react";
 
+interface ViewCounterProps {
+  slug: string;
+  trackView?: boolean;
+}
+
 export default function ViewCounter({
   slug,
   trackView = true,
-}: {
-  slug: string;
-  trackView?: boolean;
-}) {
+}: ViewCounterProps) {
   const [views, setViews] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
+  /* ------ Update views on mount ------ */
   useEffect(() => {
     const updateViews = async () => {
       try {
         const response = await fetch(`/api/views/${slug}`, {
-          method: trackView ? "POST" : "GET", // increment view only after visiting the blog
+          method: trackView ? "POST" : "GET", // Increment view only after visiting the blog
         });
 
         if (response.ok) {
@@ -35,6 +38,7 @@ export default function ViewCounter({
     updateViews();
   }, [slug, trackView]);
 
+  /* ------ Helper func to format view ------ */
   function formatViews(num: number) {
     if (num >= 1e9) return (num / 1e9).toFixed(1) + "B";
     if (num >= 1e6) return (num / 1e6).toFixed(1) + "M";

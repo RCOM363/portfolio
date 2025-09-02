@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   },
 };
 
+/* ------ Content for richie popper card ------ */
 const images = [richieImg1, richieImg2, richieImg3, richieImg4];
 const popperContent = (
   <ul className="flex list-none items-center justify-center -space-x-3">
@@ -62,7 +63,7 @@ function About() {
             {" "}
             Outside of tech, you&apos;ll usually find me geeking out over the
             latest movies/series, gaming for fun and chilling with my{" "}
-            {/* richie photo */}
+            {/* ------ Richie photo ------ */}
             <Popper
               trigger={
                 <span className="font-bold italic underline decoration-dotted underline-offset-4 transition">
