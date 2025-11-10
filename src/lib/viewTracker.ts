@@ -1,9 +1,12 @@
-// src/lib/viewTracker.ts
 import redis from "./redis";
 
 const VIEW_KEY_PREFIX = "blog:view:";
 
-// get views of a single blog
+/**
+ * Gets views of a blog post
+ * @param slug
+ * @returns views
+ */
 export async function getBlogViews(slug: string): Promise<number> {
   try {
     const views = await redis.get<number>(`${VIEW_KEY_PREFIX}${slug}`);
@@ -14,7 +17,12 @@ export async function getBlogViews(slug: string): Promise<number> {
   }
 }
 
-// increment blog views
+/**
+ * Increments the view on a blog post by 1 & returns the updated views
+ * @param slug
+ * @returns views
+ *
+ */
 export async function incrementBlogViews(slug: string): Promise<number> {
   try {
     const views = await redis.incr(`${VIEW_KEY_PREFIX}${slug}`);

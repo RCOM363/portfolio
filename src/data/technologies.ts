@@ -30,12 +30,12 @@ export const technologies = {
   Typescript: SiTypescript,
   // dev
   Tailwind: SiTailwindcss,
-  Reactjs: FaReact,
+  "React.js": FaReact,
   Redux: SiRedux,
   "TanStack Query": SiReactquery,
-  Nextjs: RiNextjsFill,
-  Nodejs: FaNodeJs,
-  Expressjs: SiExpress,
+  "Next.js": RiNextjsFill,
+  "Node.js": FaNodeJs,
+  Express: SiExpress,
   // db
   MongoDB: SiMongodb,
   // Mongoose: SiMongoose,

@@ -7,6 +7,7 @@ import { MoonIcon } from "./ui/moon";
 import { SunIcon } from "./ui/sun";
 
 function ThemeToggle() {
+  /* ------ Get resolved theme in case of system theme ------ */
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 

@@ -70,7 +70,7 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
   return (
     <section className="py-5 lg:py-4">
       <div className="flex flex-col">
-        {/* ────── Back link ────── */}
+        {/* ------ Back link ------ */}
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
           <Link
             href={"/blog"}
@@ -80,16 +80,16 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
             Back to blog
           </Link>
         </BlurFade>
-        {/* ────── Title ────── */}
+        {/* ------ Title ------ */}
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
           <h1 className="mb-2 text-4xl font-bold">{blog.title}</h1>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          {/* ────── Date & views ────── */}
+          {/* ------ Date & views ------ */}
           <div className="flex flex-col justify-between sm:flex-row">
             <p className="text-gray-600">By Rahul Lankeppanavar</p>
             <div className="flex items-center gap-2 text-gray-600">
-              {/* ────── Date ────── */}
+              {/* ------ Date ------ */}
               <span className="flex items-center gap-1">
                 <Calendar size={15} />
                 {new Date(blog.date).toLocaleDateString("en-US", {
@@ -98,14 +98,14 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
                   year: "numeric",
                 })}
               </span>
-              {/* ────── Views ────── */}
+              {/* ------ Views ------ */}
               <ViewCounter slug={blog.slug} />
-              {/* ────── Share ────── */}
+              {/* ------ Share ------ */}
               <ShareButton />
             </div>
           </div>
         </BlurFade>
-        {/* ────── Tags ────── */}
+        {/* ------ Tags ------ */}
         <BlurFade delay={BLUR_FADE_DELAY * 5}>
           <div className="w-full border-b pt-4 pb-4">
             <ul className="flex list-none flex-wrap gap-2">
@@ -121,7 +121,7 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
           </div>
         </BlurFade>
       </div>
-      {/* ────── Blog content ────── */}
+      {/* ------ Blog content ------ */}
       <BlurFade delay={BLUR_FADE_DELAY * 6}>
         <article className="prose dark:prose-invert w-full py-8">
           <MDXRemote source={blog.content} options={options} />

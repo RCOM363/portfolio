@@ -38,7 +38,7 @@ function Navbar() {
         className="flex items-center justify-between px-4 py-3 lg:py-6"
         aria-label="Primary navigation"
       >
-        {/* ────── Logo ────── */}
+        {/* ------ Logo ------ */}
         <>
           <Link href={"/"}>
             <TooltipProvider>
@@ -56,7 +56,7 @@ function Navbar() {
           </Link>
         </>
         <div className="flex items-center justify-end gap-2 font-semibold">
-          {/* ────── Desktop navigation ────── */}
+          {/* ------ Desktop navigation ------ */}
           <ul className="hidden list-none items-center gap-2 md:flex lg:flex">
             {ROUTES.map((route) => {
               const active = isActive(route.path);
@@ -77,7 +77,7 @@ function Navbar() {
               );
             })}
           </ul>
-          {/* ────── Mobile navigation ────── */}
+          {/* ------ Mobile navigation ------ */}
           <Dialog>
             <DialogTrigger className="md:hidden lg:hidden">
               <CgMenuRightAlt size={25} />
@@ -118,7 +118,7 @@ function Navbar() {
               </DialogContent>
             </BlurFade>
           </Dialog>
-          {/* ────── Theme toggle ────── */}
+          {/* ------ Theme toggle ------ */}
           <ThemeToggle />
         </div>
       </nav>

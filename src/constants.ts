@@ -1,7 +1,7 @@
-/* ────── Common blur fade delay constant ────── */
+/* ------ Common blur fade delay constant ------ */
 const BLUR_FADE_DELAY = 0.04;
 
-/* ────── Routes ────── */
+/* ------ Routes ------ */
 const ROUTES = [
   {
     name: "Home",
@@ -22,7 +22,7 @@ const ROUTES = [
   },
 ];
 
-/* ────── Hero Section ────── */
+/* ------ Hero Section ------ */
 const RESUME_URL =
   "https://drive.google.com/file/d/1PiAQR8W2cWbbFOiTAR478JHsM1Q_4RhD/view?usp=sharing";
 const GITHUB_URL = "https://www.github.com/RCOM363";

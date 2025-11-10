@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 async function Blogs() {
-  /* ────── get blogs ────── */
+  /* ------ get blogs ------ */
   const blogs = await getBlogs();
   return (
     <section className="py-5 lg:py-4">
@@ -29,7 +29,7 @@ async function Blogs() {
           I write about technologies & my learning
         </h1>
       </BlurFade>
-      {/* ────── Blogs list ────── */}
+      {/* ------ Blogs list ------ */}
       <ul className="mt-4 flex list-none flex-col gap-2 lg:py-4">
         {blogs.map((blog, index: number) => (
           <BlurFade
@@ -48,7 +48,7 @@ async function Blogs() {
                       <h2 className="text-xl font-bold">{blog.title}</h2>
                       <p>{blog.description}</p>
                     </div>
-                    {/* ────── Date & views ────── */}
+                    {/* ------ Date & views ------ */}
                     <div className="flex w-full items-center gap-2 lg:w-auto lg:flex-col lg:items-end lg:gap-0">
                       <span className="flex items-center gap-1">
                         <Calendar size={15} />
@@ -61,7 +61,7 @@ async function Blogs() {
                       <ViewCounter slug={blog.slug} trackView={false} />
                     </div>
                   </div>
-                  {/* ────── Tags ────── */}
+                  {/* ------ Tags ------ */}
                   <ul className="flex list-none flex-wrap gap-2">
                     {blog.tags.map((tag) => (
                       <li
