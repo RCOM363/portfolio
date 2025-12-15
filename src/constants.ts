@@ -1,3 +1,6 @@
+/* ------ Swipe threshold ----- */
+const SWIPE_THRESHOLD = 120;
+
 /* ------ Common blur fade delay constant ------ */
 const BLUR_FADE_DELAY = 0.04;
 
@@ -31,6 +34,7 @@ const LINKEDIN_URL =
 const EMAIL_ID = "rahullankeppanavar363@gmail.com";
 
 export {
+  SWIPE_THRESHOLD,
   BLUR_FADE_DELAY,
   ROUTES,
   RESUME_URL,
