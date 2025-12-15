@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 
+import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import Navbar from "@/components/layout/Navbar";
 import { Toaster } from "@/components/ui/sonner";
+import Navbar from "@/components/layout/Navbar";
+import SwipeNavigationProvider from "@/components/SwipeNavigationProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -50,7 +51,9 @@ export default function RootLayout({
             <header>
               <Navbar />
             </header>
-            <main className="w-full px-4">{children}</main>
+            <SwipeNavigationProvider>
+              <main className="w-full px-4">{children}</main>
+            </SwipeNavigationProvider>
           </div>
           <Toaster />
         </ThemeProvider>
