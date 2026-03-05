@@ -4,14 +4,14 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
-import { MoveLeft, Calendar } from "lucide-react";
+import { MoveLeft } from "lucide-react";
 
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { getBlogs, getBlog } from "@/lib/blog";
-import ViewCounter from "@/components/ViewCounter";
 import { ShareButton } from "@/components/ShareButton";
 
 import { BLUR_FADE_DELAY } from "@/constants";
+import { CalendarDaysIcon } from "@/components/ui/calendar-days";
 
 // generate metadate for each blog
 export async function generateMetadata({
@@ -91,15 +91,13 @@ async function Blog({ params }: { params: Promise<{ slug: string }> }) {
             <div className="flex items-center gap-2 text-gray-600">
               {/* ------ Date ------ */}
               <span className="flex items-center gap-1">
-                <Calendar size={15} />
+                <CalendarDaysIcon size={15} />
                 {new Date(blog.date).toLocaleDateString("en-US", {
                   month: "long",
                   day: "numeric",
                   year: "numeric",
                 })}
               </span>
-              {/* ------ Views ------ */}
-              <ViewCounter slug={blog.slug} />
               {/* ------ Share ------ */}
               <ShareButton />
             </div>
