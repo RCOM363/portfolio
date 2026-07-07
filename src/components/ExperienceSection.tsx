@@ -29,15 +29,13 @@ function ExperienceSection() {
                 <AccordionItem value={experience.company}>
                   <AccordionTrigger
                     company={experience.company}
-                    companyWebsite={experience.company_website}
-                    title={experience.title}
-                    duration={experience.duration}
+                    website={experience.website}
+                    startDate={experience.startDate}
+                    endDate={experience.endDate}
+                    location="Belagavi (WFH)"
                   ></AccordionTrigger>
                   <AccordionContent className="text-sm leading-relaxed">
                     <BlurFade delay={BLUR_FADE_DELAY * 2}>
-                      <p>{experience.description}</p>
-                    </BlurFade>
-                    <BlurFade delay={BLUR_FADE_DELAY * 3}>
                       <ul className="flex w-full list-none flex-wrap items-center gap-2 py-2 text-[12px]">
                         {experience.technologies.map((technology) => (
                           <li
@@ -49,6 +47,9 @@ function ExperienceSection() {
                         ))}
                       </ul>
                     </BlurFade>
+                    {/* <BlurFade delay={BLUR_FADE_DELAY * 3}>
+                      <p>{experience.description}</p>
+                    </BlurFade> */}
                   </AccordionContent>
                 </AccordionItem>
               </article>

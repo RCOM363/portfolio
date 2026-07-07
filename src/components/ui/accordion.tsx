@@ -2,10 +2,12 @@
 
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { ChevronDownIcon } from "lucide-react";
+import { ChevronDownIcon, Dot } from "lucide-react";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
+import { getExperiencePeriod } from "@/utils/dates/getExperiencePeriod";
+import { getExperienceDuration } from "@/utils/dates/getExperienceDuration";
 
 function Accordion({
   ...props
@@ -27,20 +29,23 @@ function AccordionItem({
 }
 
 // custom props
-interface AccordionTriggerProps
-  extends React.ComponentProps<typeof AccordionPrimitive.Trigger> {
+interface AccordionTriggerProps extends React.ComponentProps<
+  typeof AccordionPrimitive.Trigger
+> {
   company: string;
-  companyWebsite: string;
-  title: string;
-  duration: string;
+  website: string;
+  startDate: string;
+  endDate?: string;
+  location: string;
 }
 
 function AccordionTrigger({
   className,
   company,
-  companyWebsite,
-  title,
-  duration,
+  website,
+  startDate,
+  endDate,
+  location,
   ...props
 }: AccordionTriggerProps) {
   return (
@@ -56,18 +61,24 @@ function AccordionTrigger({
         <div className="w-full">
           <div className="flex w-full items-center justify-between gap-2">
             <div className="flex items-center justify-start gap-1">
-              <p className="text-sm font-semibold">{title}</p>
+              <Link href={website} target="_blank">
+                <p className="text-sm font-semibold hover:underline">
+                  {company}
+                </p>
+              </Link>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-muted-foreground text-right text-sm">
+                {getExperiencePeriod(startDate, endDate)}
+              </span>
               <ChevronDownIcon className="icon text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200" />
             </div>
-            <span className="text-muted-foreground text-right text-sm">
-              {duration}
-            </span>
           </div>
-          <Link href={companyWebsite} target="_blank">
-            <span className="text-muted-foreground text-sm hover:underline">
-              {company}
-            </span>
-          </Link>
+          <div className="text-muted-foreground flex items-center justify-start gap-1 text-sm">
+            <span>{location}</span>
+            <Dot size={15}/>
+            <span>{getExperienceDuration(startDate, endDate)}</span>
+          </div>
         </div>
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
